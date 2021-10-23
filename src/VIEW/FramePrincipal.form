@@ -11,6 +11,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="GerenciarUsuarios">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Icons/Icon_User_Menu.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="GERENCIAR USUARIOS"/>
               </Properties>
               <Events>
@@ -26,6 +29,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Icons/Icon_Person.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="GERENCIAR CLIENTES"/>
               </Properties>
               <Events>
@@ -41,6 +47,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="GerenciarForncedores">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Icons/Icon_Fornecedor.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="GERENCIAR FORNECEDORES"/>
               </Properties>
               <Events>
@@ -61,6 +70,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="LancamentoVendas">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Icons/Icon_Vendas.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="LAN&#xc7;AMENTOS DE VENDAS"/>
               </Properties>
               <Events>
@@ -76,6 +88,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="GerenciarProdutos">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Icons/Icon_product.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="GERENCIAR PRODUTOS"/>
               </Properties>
               <Events>
@@ -91,6 +106,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Icons/Icon_Moviemnta&#xe7;&#xe3;o_FInanceira.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="MOVIMENTA&#xc7;&#xc3;O FINANCEIRA"/>
               </Properties>
               <Events>
@@ -99,6 +117,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="Relatorio">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Icons/Icon_fechar_Caixa.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="FECHAR CAIXA"/>
               </Properties>
               <Events>
@@ -107,6 +128,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Icons/Icon_Relatorio.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="GERAR RELATORIO MENSAL"/>
               </Properties>
             </MenuItem>
@@ -123,7 +147,7 @@
                   <KeyStroke key="Ctrl+A"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Icons/ajuda.png"/>
+                  <Image iconType="3" name="/Icons/Icon_information.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="SOBRE"/>
               </Properties>

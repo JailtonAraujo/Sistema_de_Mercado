@@ -342,6 +342,7 @@ public class FramePrincipal extends javax.swing.JFrame {
 
         Menu_Usuarios.setText("USUARIOS");
 
+        GerenciarUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Icon_User_Menu.png"))); // NOI18N
         GerenciarUsuarios.setText("GERENCIAR USUARIOS");
         GerenciarUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -354,6 +355,7 @@ public class FramePrincipal extends javax.swing.JFrame {
 
         GerenciarClientes.setText("CLIENTES");
 
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Icon_Person.png"))); // NOI18N
         jMenuItem3.setText("GERENCIAR CLIENTES");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -366,6 +368,7 @@ public class FramePrincipal extends javax.swing.JFrame {
 
         Menu_Fornecedores.setText("FORNECEDORES");
 
+        GerenciarForncedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Icon_Fornecedor.png"))); // NOI18N
         GerenciarForncedores.setText("GERENCIAR FORNECEDORES");
         GerenciarForncedores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -381,6 +384,7 @@ public class FramePrincipal extends javax.swing.JFrame {
 
         Menu_Vendas.setText("VENDAS");
 
+        LancamentoVendas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Icon_Vendas.png"))); // NOI18N
         LancamentoVendas.setText("LANÇAMENTOS DE VENDAS");
         LancamentoVendas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -393,6 +397,7 @@ public class FramePrincipal extends javax.swing.JFrame {
 
         Menu_Produtos.setText("PRODUTOS");
 
+        GerenciarProdutos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Icon_product.png"))); // NOI18N
         GerenciarProdutos.setText("GERENCIAR PRODUTOS");
         GerenciarProdutos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -405,6 +410,7 @@ public class FramePrincipal extends javax.swing.JFrame {
 
         Menu_Financas.setText("FINANÇAS");
 
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Icon_Moviemntação_FInanceira.png"))); // NOI18N
         jMenuItem1.setText("MOVIMENTAÇÃO FINANCEIRA");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -413,6 +419,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         });
         Menu_Financas.add(jMenuItem1);
 
+        Relatorio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Icon_fechar_Caixa.png"))); // NOI18N
         Relatorio.setText("FECHAR CAIXA");
         Relatorio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -421,6 +428,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         });
         Menu_Financas.add(Relatorio);
 
+        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Icon_Relatorio.png"))); // NOI18N
         jMenuItem5.setText("GERAR RELATORIO MENSAL");
         Menu_Financas.add(jMenuItem5);
 
@@ -429,7 +437,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         Menu_Ajuda.setText("AJUDA");
 
         jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/ajuda.png"))); // NOI18N
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Icon_information.png"))); // NOI18N
         jMenuItem2.setText("SOBRE");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
