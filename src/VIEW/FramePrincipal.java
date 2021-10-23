@@ -19,6 +19,7 @@ import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JTextField;
+import Servicos.GerarRelatorios;
 
 /**
  *
@@ -413,6 +414,11 @@ public class FramePrincipal extends javax.swing.JFrame {
         Menu_Financas.add(jMenuItem1);
 
         Relatorio.setText("FECHAR CAIXA");
+        Relatorio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RelatorioActionPerformed(evt);
+            }
+        });
         Menu_Financas.add(Relatorio);
 
         jMenuItem5.setText("GERAR RELATORIO MENSAL");
@@ -604,6 +610,10 @@ public class FramePrincipal extends javax.swing.JFrame {
             System.out.println(ex);
         }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void RelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RelatorioActionPerformed
+        new GerarRelatorios().GerarRelatorioDiario();
+    }//GEN-LAST:event_RelatorioActionPerformed
 
     /**
      * @param args the command line arguments

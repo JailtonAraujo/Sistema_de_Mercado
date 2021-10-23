@@ -19,7 +19,7 @@ public class GerarRelatorios {
 
 
         //METODO QUE GERA RELATORIO DE FECHAMENTO DE CHAIXA//
-        public void gerarRelatorioDiario() {
+        public void GerarRelatorioDiario() {
             try {
 
                 //GERANDO CAMINHO DO RELATORIO JASPER// 

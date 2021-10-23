@@ -21,7 +21,5 @@ public class RelatorioController {
         this.view = view;
     }
     
-    public void FecharCaixa(){
-        this.relatorios.gerarRelatorioDiario();
-    }
+    
 }
