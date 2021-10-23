@@ -7,6 +7,7 @@ package VIEW;
 
 import CONTROLL.LoginControle;
 import DAO.ConectionFactory;
+import java.awt.Toolkit;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -33,6 +34,8 @@ public class FrameLogin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         this.controle = new LoginControle(this);
         this.controle.CarregarImg();
+        this.controle.SetarIcone();
+        
     }
 
     /**

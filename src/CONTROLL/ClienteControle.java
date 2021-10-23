@@ -10,6 +10,7 @@ import MODEL.Cliente;
 import MODEL.Usuario;
 import VIEW.FrameClientes;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -196,5 +197,9 @@ public class ClienteControle {
         this.view.getBnt_CliLimpar().setEnabled(true);
         this.view.getBnt_CliAtualizar().setEnabled(false);
     }
-
+    
+   
+public void SetarIcone(){
+   this.view.setFrameIcon(new ImageIcon(getClass().getResource("/Icons/Icon_Frame_Main.png")));
+    }
 }

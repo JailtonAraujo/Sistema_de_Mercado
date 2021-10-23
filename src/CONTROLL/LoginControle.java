@@ -10,6 +10,7 @@ import DAO.LoginDAO;
 import MODEL.Usuario;
 import VIEW.FrameLogin;
 import VIEW.FramePrincipal;
+import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 
 /**
@@ -69,7 +70,7 @@ public class LoginControle {
         }
     }
 
-    
+    //METODO QUE SERA CHAMADO NO ATO DO LOGIN E FARÁ A VERIFICAÇÃO E APLICARÁ AS RESTRÇÕES DE ACESSO AO USUARIOS DO DIFERENRES SETORES//
     public void restricao(FramePrincipal frame){
         if ("CAIXA".equals(this.view.getBox_UsuDivisao().getSelectedItem())){
             frame.getBtn_mov().setEnabled(false);
@@ -83,5 +84,9 @@ public class LoginControle {
             frame.getMenu_Financas().setEnabled(false);
         }
         
+    }
+    
+    public void SetarIcone(){
+        this.view.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Icons/Icon_Frame_Main.png")));
     }
 }

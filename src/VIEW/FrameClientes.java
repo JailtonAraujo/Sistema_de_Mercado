@@ -28,8 +28,11 @@ public class FrameClientes extends javax.swing.JInternalFrame {
 
     public FrameClientes() throws PropertyVetoException {
         initComponents();
+        this.setMaximum(true);
         this.controle = new ClienteControle(this);
         this.controle.CarregarTabelaClientes();
+        this.controle.SetarIcone();
+        
     }
 
     /**

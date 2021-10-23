@@ -13,6 +13,7 @@ import MODEL.Usuario;
 import VIEW.FrameLogin;
 import VIEW.FramePrincipal;
 import VIEW.Frame_movimentacao;
+import java.awt.Toolkit;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -41,6 +42,10 @@ public class PrincipalControle {
         
         this.view.getLbl_data().setText(dt);
         
+    }
+    
+     public void SetarIcone(){
+        this.view.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Icons/Icon_Frame_Main.png")));
     }
     
 }

@@ -37,7 +37,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         this.setExtendedState(MAXIMIZED_BOTH);
         this.controle = new PrincipalControle(this);
-        
+        this.controle.SetarIcone();
         this.controle.CarregarData();
 
     }
