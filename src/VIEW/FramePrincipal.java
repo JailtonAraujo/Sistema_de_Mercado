@@ -86,6 +86,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         Menu_Financas = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         Relatorio = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
         Menu_Ajuda = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
 
@@ -411,8 +412,11 @@ public class FramePrincipal extends javax.swing.JFrame {
         });
         Menu_Financas.add(jMenuItem1);
 
-        Relatorio.setText("GERAR RELATORIO DE PEDIDOS DIARIO");
+        Relatorio.setText("FECHAR CAIXA");
         Menu_Financas.add(Relatorio);
+
+        jMenuItem5.setText("GERAR RELATORIO MENSAL");
+        Menu_Financas.add(jMenuItem5);
 
         jMenuBar1.add(Menu_Financas);
 
@@ -673,6 +677,7 @@ public class FramePrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables

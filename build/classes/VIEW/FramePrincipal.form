@@ -99,7 +99,12 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="Relatorio">
               <Properties>
-                <Property name="text" type="java.lang.String" value="GERAR RELATORIO DE PEDIDOS DIARIO"/>
+                <Property name="text" type="java.lang.String" value="FECHAR CAIXA"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="GERAR RELATORIO MENSAL"/>
               </Properties>
             </MenuItem>
           </SubComponents>
