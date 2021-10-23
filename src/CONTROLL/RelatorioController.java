@@ -6,7 +6,7 @@
 package CONTROLL;
 
 import VIEW.FrameRalatorios;
-
+import Servicos.GerarRelatorios;
 
 /**
  *
@@ -15,10 +15,13 @@ import VIEW.FrameRalatorios;
 public class RelatorioController {
     
     private final FrameRalatorios view;
+    private GerarRelatorios relatorios;
     
     public RelatorioController (FrameRalatorios view){
         this.view = view;
     }
     
-    
+    public void FecharCaixa(){
+        this.relatorios.gerarRelatorioDiario();
+    }
 }
