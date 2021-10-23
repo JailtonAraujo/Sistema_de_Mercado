@@ -19,18 +19,17 @@
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="Menu_Clientes">
+        <Menu class="javax.swing.JMenu" name="GerenciarClientes">
           <Properties>
             <Property name="text" type="java.lang.String" value="CLIENTES"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JCheckBoxMenuItem" name="GerenciarClientes">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
               <Properties>
-                <Property name="selected" type="boolean" value="true"/>
                 <Property name="text" type="java.lang.String" value="GERENCIAR CLIENTES"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GerenciarClientesActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem3ActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
@@ -40,18 +39,16 @@
             <Property name="text" type="java.lang.String" value="FORNECEDORES"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JCheckBoxMenuItem" name="GerenciarFornecedores">
+            <MenuItem class="javax.swing.JMenuItem" name="GerenciarForncedores">
               <Properties>
-                <Property name="selected" type="boolean" value="true"/>
                 <Property name="text" type="java.lang.String" value="GERENCIAR FORNECEDORES"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GerenciarFornecedoresActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GerenciarForncedoresActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JCheckBoxMenuItem" name="ReceberMercadoria">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
               <Properties>
-                <Property name="selected" type="boolean" value="true"/>
                 <Property name="text" type="java.lang.String" value="RECEBER MERCADORIA"/>
               </Properties>
             </MenuItem>
@@ -62,13 +59,12 @@
             <Property name="text" type="java.lang.String" value="VENDAS"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JCheckBoxMenuItem" name="LancamentoDeVendas">
+            <MenuItem class="javax.swing.JMenuItem" name="LancamentoVendas">
               <Properties>
-                <Property name="selected" type="boolean" value="true"/>
-                <Property name="text" type="java.lang.String" value="LANCAMENTO DE VENDAS"/>
+                <Property name="text" type="java.lang.String" value="LAN&#xc7;AMENTOS DE VENDAS"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LancamentoDeVendasActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LancamentoVendasActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
@@ -78,9 +74,8 @@
             <Property name="text" type="java.lang.String" value="PRODUTOS"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JCheckBoxMenuItem" name="GerenciarProdutos">
+            <MenuItem class="javax.swing.JMenuItem" name="GerenciarProdutos">
               <Properties>
-                <Property name="selected" type="boolean" value="true"/>
                 <Property name="text" type="java.lang.String" value="GERENCIAR PRODUTOS"/>
               </Properties>
               <Events>
@@ -94,13 +89,12 @@
             <Property name="text" type="java.lang.String" value="FINAN&#xc7;AS"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JCheckBoxMenuItem" name="MovimentacaoFinanceira">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
               <Properties>
-                <Property name="selected" type="boolean" value="true"/>
                 <Property name="text" type="java.lang.String" value="MOVIMENTA&#xc7;&#xc3;O FINANCEIRA"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MovimentacaoFinanceiraActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem1ActionPerformed"/>
               </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="Relatorio">

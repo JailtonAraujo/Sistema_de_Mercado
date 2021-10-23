@@ -74,17 +74,17 @@ public class FramePrincipal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         Menu_Usuarios = new javax.swing.JMenu();
         GerenciarUsuarios = new javax.swing.JMenuItem();
-        Menu_Clientes = new javax.swing.JMenu();
-        GerenciarClientes = new javax.swing.JCheckBoxMenuItem();
+        GerenciarClientes = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
         Menu_Fornecedores = new javax.swing.JMenu();
-        GerenciarFornecedores = new javax.swing.JCheckBoxMenuItem();
-        ReceberMercadoria = new javax.swing.JCheckBoxMenuItem();
+        GerenciarForncedores = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         Menu_Vendas = new javax.swing.JMenu();
-        LancamentoDeVendas = new javax.swing.JCheckBoxMenuItem();
+        LancamentoVendas = new javax.swing.JMenuItem();
         Menu_Produtos = new javax.swing.JMenu();
-        GerenciarProdutos = new javax.swing.JCheckBoxMenuItem();
+        GerenciarProdutos = new javax.swing.JMenuItem();
         Menu_Financas = new javax.swing.JMenu();
-        MovimentacaoFinanceira = new javax.swing.JCheckBoxMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         Relatorio = new javax.swing.JMenuItem();
         Menu_Ajuda = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -350,52 +350,47 @@ public class FramePrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(Menu_Usuarios);
 
-        Menu_Clientes.setText("CLIENTES");
+        GerenciarClientes.setText("CLIENTES");
 
-        GerenciarClientes.setSelected(true);
-        GerenciarClientes.setText("GERENCIAR CLIENTES");
-        GerenciarClientes.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem3.setText("GERENCIAR CLIENTES");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GerenciarClientesActionPerformed(evt);
+                jMenuItem3ActionPerformed(evt);
             }
         });
-        Menu_Clientes.add(GerenciarClientes);
+        GerenciarClientes.add(jMenuItem3);
 
-        jMenuBar1.add(Menu_Clientes);
+        jMenuBar1.add(GerenciarClientes);
 
         Menu_Fornecedores.setText("FORNECEDORES");
 
-        GerenciarFornecedores.setSelected(true);
-        GerenciarFornecedores.setText("GERENCIAR FORNECEDORES");
-        GerenciarFornecedores.addActionListener(new java.awt.event.ActionListener() {
+        GerenciarForncedores.setText("GERENCIAR FORNECEDORES");
+        GerenciarForncedores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GerenciarFornecedoresActionPerformed(evt);
+                GerenciarForncedoresActionPerformed(evt);
             }
         });
-        Menu_Fornecedores.add(GerenciarFornecedores);
+        Menu_Fornecedores.add(GerenciarForncedores);
 
-        ReceberMercadoria.setSelected(true);
-        ReceberMercadoria.setText("RECEBER MERCADORIA");
-        Menu_Fornecedores.add(ReceberMercadoria);
+        jMenuItem4.setText("RECEBER MERCADORIA");
+        Menu_Fornecedores.add(jMenuItem4);
 
         jMenuBar1.add(Menu_Fornecedores);
 
         Menu_Vendas.setText("VENDAS");
 
-        LancamentoDeVendas.setSelected(true);
-        LancamentoDeVendas.setText("LANCAMENTO DE VENDAS");
-        LancamentoDeVendas.addActionListener(new java.awt.event.ActionListener() {
+        LancamentoVendas.setText("LANÇAMENTOS DE VENDAS");
+        LancamentoVendas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LancamentoDeVendasActionPerformed(evt);
+                LancamentoVendasActionPerformed(evt);
             }
         });
-        Menu_Vendas.add(LancamentoDeVendas);
+        Menu_Vendas.add(LancamentoVendas);
 
         jMenuBar1.add(Menu_Vendas);
 
         Menu_Produtos.setText("PRODUTOS");
 
-        GerenciarProdutos.setSelected(true);
         GerenciarProdutos.setText("GERENCIAR PRODUTOS");
         GerenciarProdutos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -408,14 +403,13 @@ public class FramePrincipal extends javax.swing.JFrame {
 
         Menu_Financas.setText("FINANÇAS");
 
-        MovimentacaoFinanceira.setSelected(true);
-        MovimentacaoFinanceira.setText("MOVIMENTAÇÃO FINANCEIRA");
-        MovimentacaoFinanceira.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem1.setText("MOVIMENTAÇÃO FINANCEIRA");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MovimentacaoFinanceiraActionPerformed(evt);
+                jMenuItem1ActionPerformed(evt);
             }
         });
-        Menu_Financas.add(MovimentacaoFinanceira);
+        Menu_Financas.add(jMenuItem1);
 
         Relatorio.setText("GERAR RELATORIO DE PEDIDOS DIARIO");
         Menu_Financas.add(Relatorio);
@@ -549,8 +543,8 @@ public class FramePrincipal extends javax.swing.JFrame {
         } 
     }//GEN-LAST:event_GerenciarUsuariosActionPerformed
 
-    private void GerenciarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GerenciarClientesActionPerformed
-       FrameClientes tela;
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        FrameClientes tela;
         try {
             tela = new FrameClientes();
             tela.setVisible(true);
@@ -559,9 +553,9 @@ public class FramePrincipal extends javax.swing.JFrame {
         } catch (PropertyVetoException ex) {
             Logger.getLogger(FramePrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_GerenciarClientesActionPerformed
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
-    private void GerenciarFornecedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GerenciarFornecedoresActionPerformed
+    private void GerenciarForncedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GerenciarForncedoresActionPerformed
         FrameFornecedores tela;
         try {
             tela = new FrameFornecedores();
@@ -571,9 +565,9 @@ public class FramePrincipal extends javax.swing.JFrame {
         } catch (Exception ex) {
             System.out.println(ex);
         }
-    }//GEN-LAST:event_GerenciarFornecedoresActionPerformed
+    }//GEN-LAST:event_GerenciarForncedoresActionPerformed
 
-    private void LancamentoDeVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LancamentoDeVendasActionPerformed
+    private void LancamentoVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LancamentoVendasActionPerformed
         FrameVendas tela;
         try {
             tela = new FrameVendas();
@@ -583,7 +577,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         } catch (Exception ex) {
             System.out.println(ex);
         }
-    }//GEN-LAST:event_LancamentoDeVendasActionPerformed
+    }//GEN-LAST:event_LancamentoVendasActionPerformed
 
     private void GerenciarProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GerenciarProdutosActionPerformed
         Frame_Produtos tela;
@@ -596,7 +590,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_GerenciarProdutosActionPerformed
 
-    private void MovimentacaoFinanceiraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MovimentacaoFinanceiraActionPerformed
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         Frame_movimentacao tela;
         try{
             tela = new Frame_movimentacao();
@@ -605,7 +599,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         }catch(Exception ex){
             System.out.println(ex);
         }
-    }//GEN-LAST:event_MovimentacaoFinanceiraActionPerformed
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -650,23 +644,20 @@ public class FramePrincipal extends javax.swing.JFrame {
     private javax.swing.JButton Btn_sair;
     private javax.swing.JButton Btn_vender;
     private javax.swing.JDesktopPane Deskpane;
-    private javax.swing.JCheckBoxMenuItem GerenciarClientes;
-    private javax.swing.JCheckBoxMenuItem GerenciarFornecedores;
-    private javax.swing.JCheckBoxMenuItem GerenciarProdutos;
+    private javax.swing.JMenu GerenciarClientes;
+    private javax.swing.JMenuItem GerenciarForncedores;
+    private javax.swing.JMenuItem GerenciarProdutos;
     private javax.swing.JMenuItem GerenciarUsuarios;
-    private javax.swing.JCheckBoxMenuItem LancamentoDeVendas;
+    private javax.swing.JMenuItem LancamentoVendas;
     private javax.swing.JLabel Lbl_Usuario;
     private javax.swing.JLabel Lbl_data;
     private javax.swing.JLabel Lbl_divisao;
     private javax.swing.JMenu Menu_Ajuda;
-    private javax.swing.JMenu Menu_Clientes;
     private javax.swing.JMenu Menu_Financas;
     private javax.swing.JMenu Menu_Fornecedores;
     private javax.swing.JMenu Menu_Produtos;
     private javax.swing.JMenu Menu_Usuarios;
     private javax.swing.JMenu Menu_Vendas;
-    private javax.swing.JCheckBoxMenuItem MovimentacaoFinanceira;
-    private javax.swing.JCheckBoxMenuItem ReceberMercadoria;
     private javax.swing.JMenuItem Relatorio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -678,7 +669,10 @@ public class FramePrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
@@ -756,11 +750,11 @@ public class FramePrincipal extends javax.swing.JFrame {
     }
 
     public JMenu getMenu_Clientes() {
-        return Menu_Clientes;
+        return GerenciarClientes;
     }
 
     public void setMenu_Clientes(JMenu Menu_Clientes) {
-        this.Menu_Clientes = Menu_Clientes;
+        this.GerenciarClientes = Menu_Clientes;
     }
 
     public JMenu getMenu_Financas() {
