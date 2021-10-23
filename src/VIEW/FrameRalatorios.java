@@ -5,6 +5,8 @@
  */
 package VIEW;
 import  CONTROLL.RelatorioController;
+import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
 
 /**
  *
@@ -30,11 +32,11 @@ public class FrameRalatorios extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
-        jButton1 = new javax.swing.JButton();
+        TextData = new javax.swing.JFormattedTextField();
+        BtnConfirmar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-        jButton1.setText("CONFIRMAR");
+        BtnConfirmar.setText("CONFIRMAR");
 
         jLabel1.setText("DIGITE O MÊS À QUAL DESEJA GERAR O REALTORIO");
 
@@ -48,11 +50,11 @@ public class FrameRalatorios extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(215, 215, 215)
-                .addComponent(jButton1)
+                .addComponent(BtnConfirmar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(205, 205, 205)
-                .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TextData, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(210, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -61,9 +63,9 @@ public class FrameRalatorios extends javax.swing.JInternalFrame {
                 .addContainerGap(27, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TextData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(BtnConfirmar)
                 .addContainerGap(70, Short.MAX_VALUE))
         );
 
@@ -72,8 +74,26 @@ public class FrameRalatorios extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
+    private javax.swing.JButton BtnConfirmar;
+    private javax.swing.JFormattedTextField TextData;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
+
+    public JButton getBtnConfirmar() {
+        return BtnConfirmar;
+    }
+
+    public void setBtnConfirmar(JButton BtnConfirmar) {
+        this.BtnConfirmar = BtnConfirmar;
+    }
+
+    public JFormattedTextField getTextData() {
+        return TextData;
+    }
+
+    public void setTextData(JFormattedTextField TextData) {
+        this.TextData = TextData;
+    }
+
+
 }

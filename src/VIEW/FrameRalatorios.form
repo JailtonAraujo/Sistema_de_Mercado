@@ -26,12 +26,12 @@
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="215" max="-2" attributes="0"/>
-              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+              <Component id="BtnConfirmar" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="205" max="-2" attributes="0"/>
-              <Component id="jFormattedTextField1" min="-2" pref="118" max="-2" attributes="0"/>
+              <Component id="TextData" min="-2" pref="118" max="-2" attributes="0"/>
               <EmptySpace pref="210" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -42,18 +42,18 @@
               <EmptySpace pref="27" max="32767" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="37" max="32767" attributes="0"/>
-              <Component id="jFormattedTextField1" min="-2" max="-2" attributes="0"/>
+              <Component id="TextData" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="55" max="32767" attributes="0"/>
-              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+              <Component id="BtnConfirmar" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="70" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField1">
+    <Component class="javax.swing.JFormattedTextField" name="TextData">
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="BtnConfirmar">
       <Properties>
         <Property name="text" type="java.lang.String" value="CONFIRMAR"/>
       </Properties>
