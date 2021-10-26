@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Relatorio_de_Vendas" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1a69ecc5-c48b-4b87-b193-ebf2ecc6d21c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Row">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2==0]]></conditionExpression>
+			<style backcolor="#99FF99"/>
+		</conditionalStyle>
+	</style>
+	<queryString>
+		<![CDATA[SELECT
+     pedido.`peddata` AS pedido_peddata,
+     pedido.`ped_valor_total` AS pedido_ped_valor_total,
+     cliente.`clinome` AS cliente_clinome,
+     usuario.`usunome` AS usuario_usunome
+FROM
+     `cliente` cliente INNER JOIN `pedido` pedido ON cliente.`clicod` = pedido.`clicod` INNER JOIN `usuario` usuario ON
+usuario.usucodigo = pedido.usucodigo
+WHERE
+pedido.`peddata` = CURRENT_DATE]]>
+	</queryString>
+	<field name="pedido_peddata" class="java.sql.Date"/>
+	<field name="pedido_ped_valor_total" class="java.math.BigDecimal"/>
+	<field name="cliente_clinome" class="java.lang.String"/>
+	<field name="usuario_usunome" class="java.lang.String"/>
+	<variable name="SOMA" class="java.lang.Float" calculation="Sum">
+		<variableExpression><![CDATA[$F{pedido_ped_valor_total}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="103" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="247" height="23" uuid="b61265e6-bfbf-4992-9c0f-63619f9a422c"/>
+				<textElement>
+					<font fontName="Arial" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RELATORIO DE VENDAS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="36" width="100" height="20" uuid="69e78123-16e8-42c3-9acb-5eecf88c0883"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MERCADO G10]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="56" width="100" height="22" uuid="fbf83148-5783-4cf6-9104-d586cd861c55"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CNPJ:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="353" y="3" width="100" height="20" uuid="772a2c6a-fbfd-4883-85a9-455c4f17191d"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="90" width="555" height="1" uuid="57d8a2f6-a66a-487f-a286-4fdc4fc6c85c"/>
+			</line>
+			<image>
+				<reportElement x="475" y="23" width="80" height="67" uuid="1dedcbf5-6e41-4a4c-ac63-45a4b5a615eb"/>
+				<imageExpression><![CDATA["C:\\Users\\jailt\\Documents\\GitHub\\MeusProjetos\\Sistema_de_Mercado\\src\\Icons\\Logo_reporter.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="20" backcolor="#CCCCCC" uuid="7d1db233-72de-4f51-9a10-0f0871849ede"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="35" height="20" uuid="777c9bc0-82c2-4933-9f44-d1f3d1b154a8"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DATA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="147" y="0" width="100" height="20" uuid="945fba1b-759e-471b-9386-9915bc6e029c"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VENDEDOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="297" y="0" width="100" height="20" uuid="4415f6c2-a5d6-435f-be1e-cfa88fbcaa4c"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CLIENTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="431" y="0" width="124" height="20" uuid="ea24ff22-3763-40f6-8d6e-75cf1a2effdc"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VALOR DA COMPRA]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="15" uuid="53e90874-a273-4a17-97dd-6b6c622e8a6a"/>
+			</frame>
+			<textField>
+				<reportElement x="2" y="0" width="100" height="15" uuid="62b9f082-2b07-4e4b-a811-10b359d0425d"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pedido_peddata}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="147" y="0" width="100" height="15" uuid="029acc34-cbee-4cf5-abbd-2686abc04b82"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{usuario_usunome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="297" y="0" width="100" height="15" uuid="0e062a47-f5d8-4339-959e-53bef17d7376"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cliente_clinome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="431" y="0" width="100" height="15" uuid="808ccd54-cadd-4bdc-a914-83088491eb8a"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pedido_ped_valor_total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="22" splitType="Stretch">
+			<textField evaluationTime="Report">
+				<reportElement x="531" y="2" width="21" height="20" uuid="a3a33932-7cfa-4f66-aa16-12033bfc7a22"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="50">
+			<rectangle>
+				<reportElement x="397" y="30" width="155" height="20" backcolor="#CCCCCC" uuid="95716cdb-855b-4f8f-a006-aeff5a080db2"/>
+			</rectangle>
+			<textField>
+				<reportElement x="522" y="30" width="32" height="20" uuid="0daaf9cd-317f-4c06-8845-1a3459e0ce00"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{SOMA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="502" y="30" width="20" height="20" uuid="5e532bd8-561f-4991-a24d-5a86405906dd"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[R$]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="407" y="30" width="90" height="20" uuid="1b823ce1-b0bd-4889-b88a-4aa73a26a4b8"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VALOR TOTAL:]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
