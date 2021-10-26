@@ -59,7 +59,11 @@ public class VendaControle {
 
     //METODO QUE CADASTRA UM PEDIDO COMPLETO JUNTO COM TODOS ITEMS//
     public void FecharPedido() {
-        String data = this.view.getTex_data().getText();
+        int opc = JOptionPane.showConfirmDialog(null,"TEM CERTEZA QUE DESEJA FECHAR O PEDIDO ATUAL?","ATENÇÃO",JOptionPane.YES_NO_OPTION);
+        
+        if (opc == 0){
+              
+            String data = this.view.getTex_data().getText();
         data = this.converterData(data);
         Usuario usuario = new Usuario(this.LoginDao.ReturnUsu());
         Cliente cliente = (Cliente) this.view.getBox_cliente().getSelectedItem();
@@ -86,6 +90,8 @@ public class VendaControle {
         this.ListaDeItens.clear();
         this.CarregarTabelaDeItens();
         this.limparCampos();
+        }
+        
 
     }
     
