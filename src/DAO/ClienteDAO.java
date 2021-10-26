@@ -25,7 +25,7 @@ public class ClienteDAO {
 
     public boolean CadastrarCliente(Cliente cliente) {
         String sql = "INSERT INTO cliente (clinome, clicpf, clitelefone, cliemail, "
-                + "clicep, clilogadouro, clinumero, clicomplemento, clibairro, climunicipio, cliestado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                + "clicep, clilogadouro, clinumero, clicomplemento, clibairro, climunicipio, cliestado, debito) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
 
@@ -43,6 +43,7 @@ public class ClienteDAO {
             pst.setString(9, cliente.getBairro());
             pst.setString(10, cliente.getCidade());
             pst.setString(11, cliente.getEstado());
+            pst.setFloat(12, cliente.getDebito());
             pst.execute();
             pst.close();
             conn.close();
@@ -136,6 +137,44 @@ public class ClienteDAO {
         } catch (SQLException ex) {
             System.out.println("ERRO AO EXCLUIR CLIENTE:" + ex);
         }
+    }
+
+    public float BuscarDebito(int id) {
+        String sql = "SELECT debito from cliente WHERE clicod = ? ";
+        float debito = 0;
+        try {
+            conn = ConectionFactory.getConnection();
+            pst = (PreparedStatement) conn.prepareStatement(sql);
+            pst.setInt(1, id);
+            rs = pst.executeQuery();
+            rs.next();
+
+            debito = rs.getFloat(1);
+
+        } catch (SQLException ex) {
+            System.out.println("erro ao buscar debito" + ex);
+
+        }
+        return debito;
+    }
+
+    public boolean AlterarDebito(float debito, int id) {
+        String sql = "UPDATE cliente SET debito = ? WHERE clicod = ?";
+
+        try {
+            conn = ConectionFactory.getConnection();
+            pst = (PreparedStatement) conn.prepareStatement(sql);
+            pst.setFloat(1, debito);
+            pst.setFloat(2, id);
+
+            pst.execute();
+
+            return true;
+
+        } catch (SQLException ex) {
+            throw new RuntimeException("Erro ao atuliazar cliente" + ex);
+        }
+
     }
 
 }

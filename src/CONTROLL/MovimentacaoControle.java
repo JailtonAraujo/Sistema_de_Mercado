@@ -39,12 +39,11 @@ public class MovimentacaoControle {
         for (Pedido pedido : this.ListaDePedidos) {
             Object linha[] = new Object[]{
                 pedido.getCodigo(),
-                //pedido.getCliente().getID(),
-                //pedido.getUsuario().getId(),
                 pedido.getCliente().getNome(),
                 pedido.getUsuario().getNome(),
                 pedido.getData(),
-                "R$" + pedido.getValor_total()
+                "R$" + pedido.getValor_total(),
+                pedido.getFormaDePagamento()
             };
 
             modelo.addRow(linha);
@@ -88,6 +87,7 @@ public class MovimentacaoControle {
         this.view.getTex_data().setText(pedido.getData());
         this.view.getTex_valor_total().setText(String.valueOf(pedido.getValor_total()));
         this.view.getTex_total_itens().setText(String.valueOf(quant));
+        this.view.getTextFormaPagaemento().setText(pedido.getFormaDePagamento());
     }
 
 }

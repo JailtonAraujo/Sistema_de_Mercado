@@ -87,13 +87,14 @@ public class ClienteControle {
         String bairro = this.view.getTex_CliBairro().getText();
         String cidade = this.view.getTex_CliCidade().getText();
         String estado = this.view.getTex_CliEstado().getText();
+        float debito = Float.parseFloat(this.view.getTextDebito().getText());
 
         if ("cadastrar".equals(comando)) {
             id = "0";
         }
         if (nome != null && nome.length() > 0 && cpf != null && cpf.length() > 0 && telefone != null && telefone.length() > 0
                 && logradouro != null && logradouro.length() > 0) {
-            Cliente modelo = new Cliente(Integer.parseInt(id), nome, cpf, telefone, email, cep, logradouro, numero, complemento, bairro, cidade, estado);
+            Cliente modelo = new Cliente(Integer.parseInt(id), nome, cpf, telefone, email, cep, logradouro, numero, complemento, bairro, cidade, estado, debito);
             return modelo;
         }
         JOptionPane.showMessageDialog(null, "INFORMAÇÕES INVALIDAS, VERIFIQUE OS DADOS DIGITADOS E TENTE NOVAMENTE!");

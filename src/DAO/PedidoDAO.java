@@ -29,7 +29,7 @@ public class PedidoDAO {
     ArrayList<ItenPedido> Pedido_Iten = null;
 
     public int AdicionarPedido(Pedido pedido) {
-        String slq = "INSERT INTO pedido (peddata, clicod, usucodigo, ped_valor_total) VALUES (?, ?, ?, ?)";
+        String slq = "INSERT INTO pedido (peddata, clicod, usucodigo, ped_valor_total, forma_de_pagamento) VALUES (?, ?, ?, ?, ?)";
 
         try {
             conn = ConectionFactory.getConnection();
@@ -39,6 +39,7 @@ public class PedidoDAO {
             pst.setInt(2, pedido.getCliente().getID());
             pst.setInt(3, pedido.getUsuario().getId());
             pst.setFloat(4, pedido.getValor_total());
+            pst.setString(5, pedido.getFormaDePagamento());
             pst.execute();
 
             rs = pst.getGeneratedKeys();
@@ -77,7 +78,7 @@ public class PedidoDAO {
     }
 
     public ArrayList<Pedido> Listar() {
-        String sql = "select  a.pedcod, a.peddata, b.clinome, c.usunome, a.ped_valor_total  from "
+        String sql = "select  a.pedcod, a.peddata, b.clinome, c.usunome, a.ped_valor_total, a.forma_de_pagamento from "
                 + "pedido a join cliente b on b.clicod = a.clicod join usuario c on c.usucodigo = a.usucodigo order by a.peddata desc";
         this.Pedidos = new ArrayList<Pedido>();
         try {
@@ -93,8 +94,7 @@ public class PedidoDAO {
                 pedido.setNomeCliente(rs.getString(3));
                 pedido.setNomeUsuario(rs.getString(4));
                 pedido.setValor_total(rs.getFloat(5));
-               // pedido.setCliente(rs.getInt(3));
-               //pedido.setUsuario(rs.getInt(4));
+                pedido.setFormaDePagamento(rs.getString(6));
 
                 this.Pedidos.add(pedido);
             }

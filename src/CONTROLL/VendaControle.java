@@ -68,11 +68,19 @@ public class VendaControle {
         Usuario usuario = new Usuario(this.LoginDao.ReturnUsu());
         Cliente cliente = (Cliente) this.view.getBox_cliente().getSelectedItem();
         float Total_pedido = Float.valueOf(this.view.getTex_valor_total_dos_peididos().getText());
+        String FormaDePagamento = this.view.getBoxFormaPagamento().getSelectedItem().toString();
         
-        Pedido pedido = new Pedido(data, cliente, usuario, Total_pedido );
+        Pedido pedido = new Pedido(data, cliente, usuario, Total_pedido, FormaDePagamento );
 
         int PedCod = this.pedidodao.AdicionarPedido(pedido);
         pedido.setCodigo(PedCod);
+        
+        if ("Debito".equals(this.view.getBoxFormaPagamento().getSelectedItem().toString())){
+            this.AdicionarNaConta(cliente, Total_pedido);
+        }
+        else if("Credito".equals(this.view.getBoxFormaPagamento().getSelectedItem().toString())){
+            this.view.getBox_cliente().setToolTipText("COMPRAS A VISTA");
+        }
 
         for (ItenPedido item : this.ListaDeItens) {
             item.setPedido(PedCod);
@@ -229,5 +237,17 @@ public class VendaControle {
        
        System.out.println(usuario);
      
+   }
+        
+    //METODO QUE IRA SOMAR O VALOR TOTAL DA COMPRA AO DEBITO JA EXISTENTE DO CLIENTE//
+   public void AdicionarNaConta(Cliente cliente, float ValorCompra){
+       //PEGANDO O DEBITO ATUAL DO CLIENTE//
+       float debito = this.cliente_dao.BuscarDebito(cliente.getID());
+       
+       //ATRIBUINDO O VALOR DA COMPRA//
+      float debitototal = debito + Float.parseFloat(this.view.getTex_valor_total_dos_peididos().getText());
+       
+      //ALTERANDO O DEBITO DO CLIENTE NO BD//
+      this.cliente_dao.AlterarDebito(debitototal, cliente.getID());
    }
 }

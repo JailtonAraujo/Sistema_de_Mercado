@@ -23,6 +23,7 @@ public class Cliente {
     private String bairro;
     private String cidade;
     private String estado;
+    private float debito;
 
     public Cliente() {
     }
@@ -30,12 +31,18 @@ public class Cliente {
     public Cliente(int ID) {
         this.ID = ID;
     }
+
+    public Cliente(float debito) {
+        this.debito = debito;
+    }
+    
+    
     
     public Cliente(String Nome) {
         this.nome = Nome;
     }
 
-    public Cliente(int ID, String nome, String CPF, String telefone, String email, String CEP, String Logradouro, String Numero, String complemento, String bairro, String cidade, String estado) {
+    public Cliente(int ID, String nome, String CPF, String telefone, String email, String CEP, String Logradouro, String Numero, String complemento, String bairro, String cidade, String estado, float debito) {
         this.ID = ID;
         this.nome = nome;
         this.CPF = CPF;
@@ -48,6 +55,7 @@ public class Cliente {
         this.bairro = bairro;
         this.cidade = cidade;
         this.estado = estado;
+        this.debito = debito;
     }
 
     public int getID() {
@@ -150,5 +158,15 @@ public class Cliente {
     public String toString() {
         return nome;
     }
+
+    public float getDebito() {
+        return debito;
+    }
+
+    public void setDebito(float debito) {
+        this.debito = debito;
+    }
+    
+    
 
 }
