@@ -14,7 +14,8 @@
      pedido.`peddata` AS pedido_peddata,
      pedido.`ped_valor_total` AS pedido_ped_valor_total,
      cliente.`clinome` AS cliente_clinome,
-     usuario.`usunome` AS usuario_usunome
+     usuario.`usunome` AS usuario_usunome,
+     pedido.`forma_de_pagamento` as formapagamento
 FROM
      `cliente` cliente INNER JOIN `pedido` pedido ON cliente.`clicod` = pedido.`clicod` INNER JOIN `usuario` usuario ON
 usuario.usucodigo = pedido.usucodigo
@@ -25,6 +26,7 @@ pedido.`peddata` = CURRENT_DATE]]>
 	<field name="pedido_ped_valor_total" class="java.math.BigDecimal"/>
 	<field name="cliente_clinome" class="java.lang.String"/>
 	<field name="usuario_usunome" class="java.lang.String"/>
+	<field name="formapagamento" class="java.lang.String"/>
 	<variable name="SOMA" class="java.lang.Float" calculation="Sum">
 		<variableExpression><![CDATA[$F{pedido_ped_valor_total}]]></variableExpression>
 	</variable>
@@ -83,25 +85,32 @@ pedido.`peddata` = CURRENT_DATE]]>
 				<text><![CDATA[DATA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="147" y="0" width="100" height="20" uuid="945fba1b-759e-471b-9386-9915bc6e029c"/>
+				<reportElement x="85" y="0" width="100" height="20" uuid="945fba1b-759e-471b-9386-9915bc6e029c"/>
 				<textElement verticalAlignment="Middle">
-					<font fontName="Arial" size="12" isBold="true"/>
+					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[VENDEDOR]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="297" y="0" width="100" height="20" uuid="4415f6c2-a5d6-435f-be1e-cfa88fbcaa4c"/>
+				<reportElement x="199" y="0" width="72" height="20" uuid="4415f6c2-a5d6-435f-be1e-cfa88fbcaa4c"/>
 				<textElement verticalAlignment="Middle">
-					<font fontName="Arial" size="12" isBold="true"/>
+					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[CLIENTE]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="431" y="0" width="124" height="20" uuid="ea24ff22-3763-40f6-8d6e-75cf1a2effdc"/>
+				<reportElement x="318" y="0" width="110" height="20" uuid="ea24ff22-3763-40f6-8d6e-75cf1a2effdc"/>
 				<textElement verticalAlignment="Middle">
-					<font fontName="Arial" size="12" isBold="true"/>
+					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[VALOR DA COMPRA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="429" y="0" width="123" height="20" uuid="816f1852-7890-4d6c-a207-81264a59f8d3"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FORMA DE PAGAMENTO]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
@@ -109,30 +118,34 @@ pedido.`peddata` = CURRENT_DATE]]>
 		<band height="15" splitType="Stretch">
 			<frame>
 				<reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="15" uuid="53e90874-a273-4a17-97dd-6b6c622e8a6a"/>
+				<textField>
+					<reportElement x="431" y="0" width="100" height="15" uuid="28b75791-2dcf-41c3-b709-53f8aafc7a45"/>
+					<textFieldExpression><![CDATA[$F{formapagamento}]]></textFieldExpression>
+				</textField>
 			</frame>
 			<textField>
-				<reportElement x="2" y="0" width="100" height="15" uuid="62b9f082-2b07-4e4b-a811-10b359d0425d"/>
+				<reportElement x="2" y="0" width="72" height="15" uuid="62b9f082-2b07-4e4b-a811-10b359d0425d"/>
 				<textElement>
 					<font fontName="Arial"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{pedido_peddata}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="147" y="0" width="100" height="15" uuid="029acc34-cbee-4cf5-abbd-2686abc04b82"/>
+				<reportElement x="85" y="0" width="100" height="15" uuid="029acc34-cbee-4cf5-abbd-2686abc04b82"/>
 				<textElement>
 					<font fontName="Arial"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{usuario_usunome}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="297" y="0" width="100" height="15" uuid="0e062a47-f5d8-4339-959e-53bef17d7376"/>
+				<reportElement x="199" y="0" width="109" height="15" uuid="0e062a47-f5d8-4339-959e-53bef17d7376"/>
 				<textElement>
 					<font fontName="Arial"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{cliente_clinome}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="431" y="0" width="100" height="15" uuid="808ccd54-cadd-4bdc-a914-83088491eb8a"/>
+				<reportElement x="320" y="0" width="43" height="15" uuid="808ccd54-cadd-4bdc-a914-83088491eb8a"/>
 				<textElement>
 					<font fontName="Arial"/>
 				</textElement>

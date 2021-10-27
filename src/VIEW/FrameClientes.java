@@ -123,7 +123,13 @@ public class FrameClientes extends javax.swing.JInternalFrame {
 
         jLabel14.setText("DEBITO:");
 
+        TextDebito.setEditable(false);
         TextDebito.setText("0.0");
+        TextDebito.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TextDebitoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -581,6 +587,10 @@ public class FrameClientes extends javax.swing.JInternalFrame {
     private void Bnt_CliAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bnt_CliAtualizarActionPerformed
         this.controle.AtualizarCliente();
     }//GEN-LAST:event_Bnt_CliAtualizarActionPerformed
+
+    private void TextDebitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextDebitoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextDebitoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

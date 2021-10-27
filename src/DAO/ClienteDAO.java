@@ -76,6 +76,7 @@ public class ClienteDAO {
                 cliente.setBairro(rs.getString(10));
                 cliente.setCidade(rs.getString(11));
                 cliente.setEstado(rs.getString(12));
+                cliente.setDebito(rs.getFloat(13));
 
                 this.Clientes.add(cliente);
 

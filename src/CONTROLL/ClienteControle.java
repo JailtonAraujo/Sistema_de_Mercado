@@ -131,6 +131,7 @@ public class ClienteControle {
         this.view.getTex_CliBairro().setText("");
         this.view.getTex_CliCidade().setText("");
         this.view.getTex_CliEstado().setText("");
+        this.view.getTextDebito().setText("0.0");
         this.view.getBnt_CliCadastro().setEnabled(true);
         this.view.getBnt_CliLimpar().setEnabled(true);
         this.view.getBnt_CliEditar().setEnabled(true);
@@ -172,6 +173,7 @@ public class ClienteControle {
         this.view.getTex_CliBairro().setText(modelo.getBairro());
         this.view.getTex_CliCidade().setText(modelo.getCidade());
         this.view.getTex_CliEstado().setText(modelo.getEstado());
+        this.view.getTextDebito().setText(String.valueOf( modelo.getDebito()));
         this.view.getBnt_CliCadastro().setEnabled(false);
         this.view.getBnt_CliEditar().setEnabled(false);
         this.view.getBnt_CliExcluir().setEnabled(false);
