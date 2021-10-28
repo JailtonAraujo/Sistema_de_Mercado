@@ -30,6 +30,7 @@ public class FramePrincipal extends javax.swing.JFrame {
     /**
      * Creates new form FramePrincipal
      */
+    
     private final PrincipalControle controle;
 
     public FramePrincipal() {
@@ -430,6 +431,11 @@ public class FramePrincipal extends javax.swing.JFrame {
 
         jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Icon_Relatorio.png"))); // NOI18N
         jMenuItem5.setText("GERAR RELATORIO MENSAL");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         Menu_Financas.add(jMenuItem5);
 
         jMenuBar1.add(Menu_Financas);
@@ -622,6 +628,18 @@ public class FramePrincipal extends javax.swing.JFrame {
     private void RelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RelatorioActionPerformed
         new GerarRelatorios().GerarRelatorioDiario();
     }//GEN-LAST:event_RelatorioActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        FrameRalatorios tela;
+        try{
+            tela = new FrameRalatorios();
+            tela.setVisible(true);
+            Deskpane.add(tela);
+        
+        }catch(Exception ex){
+            System.out.println(ex);
+        }
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     /**
      * @param args the command line arguments

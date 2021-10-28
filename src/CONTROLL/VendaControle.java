@@ -18,12 +18,14 @@ import MODEL.Produto;
 import MODEL.Usuario;
 import VIEW.FrameLogin;
 import VIEW.FrameVendas;
+import java.awt.Toolkit;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -250,4 +252,9 @@ public class VendaControle {
       //ALTERANDO O DEBITO DO CLIENTE NO BD//
       this.cliente_dao.AlterarDebito(debitototal, cliente.getID());
    }
+   
+   public void SetarIcone() {
+        this.view.setFrameIcon(new ImageIcon(getClass().getResource("/Icons/Icon_Frame_Main.png")));
+    }
+
 }

@@ -12,6 +12,7 @@ import MODEL.Produto;
 import VIEW.Frame_Produtos;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -138,7 +139,7 @@ public class ProdutoControle {
             Object linha[] = new Object[]{
                 this.ListaDeProdutos.get(i).getNome(),
                 this.ListaDeProdutos.get(i).getDescricao(),
-                "R$"+this.ListaDeProdutos.get(i).getValorunitario(),
+                "R$" + this.ListaDeProdutos.get(i).getValorunitario(),
                 this.ListaDeProdutos.get(i).getFornecedor().getNome()
 
             };
@@ -196,5 +197,9 @@ public class ProdutoControle {
         this.view.getBtn_excluir().setEnabled(true);
         this.view.getBtn_atalizar().setEnabled(false);
 
+    }
+
+    public void SetarIcone() {
+        this.view.setFrameIcon(new ImageIcon(getClass().getResource("/Icons/Icon_Frame_Main.png")));
     }
 }

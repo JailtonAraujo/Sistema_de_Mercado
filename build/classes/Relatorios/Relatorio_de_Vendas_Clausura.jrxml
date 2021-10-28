@@ -17,17 +17,19 @@
      pedido.`peddata` AS pedido_peddata,
      pedido.`ped_valor_total` AS pedido_ped_valor_total,
      cliente.`clinome` AS cliente_clinome,
-     usuario.`usunome` AS usuario_usunome
+     usuario.`usunome` AS usuario_usunome,
+     pedido.`forma_de_pagamento` AS pedido_forma_de_pagamento
 FROM
-     `cliente` cliente INNER JOIN `pedido` pedido ON cliente.`clicod` = pedido.`clicod` INNER JOIN `usuario` usuario ON
-usuario.usucodigo = pedido.usucodigo
+     `cliente` cliente INNER JOIN `pedido` pedido ON cliente.`clicod` = pedido.`clicod`
+     INNER JOIN `usuario` usuario ON pedido.`usucodigo` = usuario.`usucodigo`
 WHERE
-MONTH(pedido.peddata) = $P{mes}]]>
+     MONTH(pedido.peddata) = $P{mes}]]>
 	</queryString>
 	<field name="pedido_peddata" class="java.sql.Date"/>
 	<field name="pedido_ped_valor_total" class="java.math.BigDecimal"/>
 	<field name="cliente_clinome" class="java.lang.String"/>
 	<field name="usuario_usunome" class="java.lang.String"/>
+	<field name="pedido_forma_de_pagamento" class="java.lang.String"/>
 	<variable name="VALOR_TOTAL" class="java.lang.Float" calculation="Sum">
 		<variableExpression><![CDATA[$F{pedido_ped_valor_total}]]></variableExpression>
 		<initialValueExpression><![CDATA[]]></initialValueExpression>
@@ -52,15 +54,15 @@ MONTH(pedido.peddata) = $P{mes}]]>
 				<text><![CDATA[MERCADO G10]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="56" width="100" height="22" uuid="fbf83148-5783-4cf6-9104-d586cd861c55"/>
+				<reportElement x="39" y="58" width="148" height="22" forecolor="#FF0000" uuid="fbf83148-5783-4cf6-9104-d586cd861c55"/>
 				<textElement verticalAlignment="Bottom">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[CNPJ:]]></text>
+				<text><![CDATA[ 27.359.788/0001-83]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="353" y="3" width="100" height="20" uuid="772a2c6a-fbfd-4883-85a9-455c4f17191d"/>
-				<textElement>
+				<reportElement x="362" y="60" width="100" height="22" uuid="772a2c6a-fbfd-4883-85a9-455c4f17191d"/>
+				<textElement verticalAlignment="Bottom">
 					<font fontName="Arial" size="14" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
@@ -72,6 +74,20 @@ MONTH(pedido.peddata) = $P{mes}]]>
 			<line>
 				<reportElement x="0" y="90" width="555" height="1" uuid="57d8a2f6-a66a-487f-a286-4fdc4fc6c85c"/>
 			</line>
+			<staticText>
+				<reportElement x="2" y="58" width="37" height="22" uuid="f7265ffe-42dd-41b7-838a-3042dd052877"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CNPJ:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="312" y="60" width="50" height="22" uuid="cca82dcd-0d10-4059-9531-2f606c4bc132"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DATA:]]></text>
+			</staticText>
 		</band>
 	</title>
 	<columnHeader>
@@ -80,32 +96,39 @@ MONTH(pedido.peddata) = $P{mes}]]>
 				<reportElement x="0" y="0" width="555" height="20" backcolor="#CCCCCC" uuid="7d1db233-72de-4f51-9a10-0f0871849ede"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="0" y="0" width="35" height="20" uuid="777c9bc0-82c2-4933-9f44-d1f3d1b154a8"/>
+				<reportElement x="0" y="0" width="39" height="20" uuid="777c9bc0-82c2-4933-9f44-d1f3d1b154a8"/>
 				<textElement>
-					<font fontName="Arial" size="12" isBold="true"/>
+					<font fontName="Arial" size="10" isBold="true" isItalic="false"/>
 				</textElement>
 				<text><![CDATA[DATA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="147" y="0" width="100" height="20" uuid="945fba1b-759e-471b-9386-9915bc6e029c"/>
+				<reportElement x="72" y="0" width="104" height="20" uuid="945fba1b-759e-471b-9386-9915bc6e029c"/>
 				<textElement>
-					<font fontName="Arial" size="12" isBold="true"/>
+					<font fontName="Arial" size="10" isBold="true" isItalic="false"/>
 				</textElement>
 				<text><![CDATA[VENDEDOR]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="297" y="0" width="100" height="20" uuid="4415f6c2-a5d6-435f-be1e-cfa88fbcaa4c"/>
+				<reportElement x="184" y="0" width="104" height="20" uuid="4415f6c2-a5d6-435f-be1e-cfa88fbcaa4c"/>
 				<textElement>
-					<font fontName="Arial" size="12" isBold="true"/>
+					<font fontName="Arial" size="10" isBold="true" isItalic="false"/>
 				</textElement>
 				<text><![CDATA[CLIENTE]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="431" y="0" width="124" height="20" uuid="ea24ff22-3763-40f6-8d6e-75cf1a2effdc"/>
+				<reportElement x="297" y="0" width="115" height="20" uuid="ea24ff22-3763-40f6-8d6e-75cf1a2effdc"/>
 				<textElement>
-					<font fontName="Arial" size="12" isBold="true"/>
+					<font fontName="Arial" size="10" isBold="true" isItalic="false"/>
 				</textElement>
 				<text><![CDATA[VALOR DA COMPRA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="412" y="0" width="130" height="20" uuid="f30c8d0a-8cb0-4958-ab3c-03b816d7c992"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FORMA DA PAGAMENTO]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
@@ -113,31 +136,45 @@ MONTH(pedido.peddata) = $P{mes}]]>
 		<band height="15" splitType="Stretch">
 			<frame>
 				<reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="15" uuid="53e90874-a273-4a17-97dd-6b6c622e8a6a"/>
+				<textField>
+					<reportElement x="411" y="0" width="130" height="15" uuid="ad0fcb65-164a-4c55-90b1-9bb69f30ba2a"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{pedido_forma_de_pagamento}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="297" y="0" width="15" height="15" uuid="406568d1-2c6a-46b6-8dbd-d81443c6fdb7"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial"/>
+					</textElement>
+					<text><![CDATA[R$]]></text>
+				</staticText>
 			</frame>
 			<textField>
-				<reportElement x="2" y="0" width="100" height="15" uuid="62b9f082-2b07-4e4b-a811-10b359d0425d"/>
-				<textElement>
+				<reportElement x="2" y="0" width="58" height="15" uuid="62b9f082-2b07-4e4b-a811-10b359d0425d"/>
+				<textElement verticalAlignment="Middle">
 					<font fontName="Arial"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{pedido_peddata}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="147" y="0" width="100" height="15" uuid="029acc34-cbee-4cf5-abbd-2686abc04b82"/>
-				<textElement>
+				<reportElement x="72" y="0" width="100" height="15" uuid="029acc34-cbee-4cf5-abbd-2686abc04b82"/>
+				<textElement verticalAlignment="Middle">
 					<font fontName="Arial"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{usuario_usunome}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="297" y="0" width="100" height="15" uuid="0e062a47-f5d8-4339-959e-53bef17d7376"/>
-				<textElement>
+				<reportElement x="184" y="0" width="100" height="15" uuid="0e062a47-f5d8-4339-959e-53bef17d7376"/>
+				<textElement verticalAlignment="Middle">
 					<font fontName="Arial"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{cliente_clinome}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="431" y="0" width="100" height="15" uuid="808ccd54-cadd-4bdc-a914-83088491eb8a"/>
-				<textElement>
+				<reportElement x="312" y="0" width="79" height="15" uuid="808ccd54-cadd-4bdc-a914-83088491eb8a"/>
+				<textElement verticalAlignment="Middle">
 					<font fontName="Arial"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{pedido_ped_valor_total}]]></textFieldExpression>
@@ -156,26 +193,26 @@ MONTH(pedido.peddata) = $P{mes}]]>
 		</band>
 	</pageFooter>
 	<summary>
-		<band height="39">
+		<band height="48">
 			<rectangle>
-				<reportElement x="412" y="15" width="143" height="20" backcolor="#CCCCCC" uuid="0b4a5501-740d-4bc0-869c-5caf5a7752df"/>
+				<reportElement x="405" y="28" width="150" height="20" backcolor="#CCCCCC" uuid="0b4a5501-740d-4bc0-869c-5caf5a7752df"/>
 			</rectangle>
 			<textField pattern="" isBlankWhenNull="false">
-				<reportElement x="525" y="15" width="27" height="20" uuid="6d3700b5-1e56-411d-b606-9443752d0cb1"/>
+				<reportElement x="525" y="28" width="27" height="20" uuid="6d3700b5-1e56-411d-b606-9443752d0cb1"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$V{VALOR_TOTAL}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="412" y="15" width="92" height="20" uuid="35d75654-a563-4935-a6f0-d213c2bebc2f"/>
+				<reportElement x="412" y="28" width="92" height="20" uuid="35d75654-a563-4935-a6f0-d213c2bebc2f"/>
 				<textElement verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[VALOR TOTAL:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="508" y="15" width="19" height="20" uuid="45df794a-2019-454a-89b5-33c86a976cca"/>
+				<reportElement x="508" y="28" width="19" height="20" uuid="45df794a-2019-454a-89b5-33c86a976cca"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>

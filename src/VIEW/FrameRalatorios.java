@@ -7,6 +7,7 @@ package VIEW;
 import  CONTROLL.RelatorioController;
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
+import javax.swing.JTextField;
 
 /**
  *
@@ -17,10 +18,12 @@ public class FrameRalatorios extends javax.swing.JInternalFrame {
     /**
      * Creates new form FrameRalatorios
      */
+        
     private final RelatorioController controle;
     public FrameRalatorios() {
         initComponents();
         this.controle = new RelatorioController(this);
+        this.controle.SetarIcone();
     }
 
     /**
@@ -32,13 +35,26 @@ public class FrameRalatorios extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        TextData = new javax.swing.JFormattedTextField();
         BtnConfirmar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        TextMes = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+
+        setClosable(true);
+        setMaximizable(true);
+        setResizable(true);
+        setTitle("RELAORIO MENSAL");
 
         BtnConfirmar.setText("CONFIRMAR");
+        BtnConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnConfirmarActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("DIGITE O MÊS À QUAL DESEJA GERAR O REALTORIO");
+
+        jLabel2.setText("EX: Fevereiro = 02");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -50,33 +66,41 @@ public class FrameRalatorios extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(215, 215, 215)
-                .addComponent(BtnConfirmar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(205, 205, 205)
-                .addComponent(TextData, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(210, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(BtnConfirmar)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(TextMes, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(217, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(27, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                .addComponent(TextData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(TextMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(BtnConfirmar)
                 .addContainerGap(70, Short.MAX_VALUE))
         );
 
-        pack();
+        setBounds(650, 0, 535, 279);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnConfirmarActionPerformed
+       this.controle.RelatorioMensal();
+    }//GEN-LAST:event_BtnConfirmarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnConfirmar;
-    private javax.swing.JFormattedTextField TextData;
+    private javax.swing.JTextField TextMes;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 
     public JButton getBtnConfirmar() {
@@ -87,13 +111,15 @@ public class FrameRalatorios extends javax.swing.JInternalFrame {
         this.BtnConfirmar = BtnConfirmar;
     }
 
-    public JFormattedTextField getTextData() {
-        return TextData;
+    public JTextField getTextMes() {
+        return TextMes;
     }
 
-    public void setTextData(JFormattedTextField TextData) {
-        this.TextData = TextData;
+    public void setTextMes(JTextField TextMes) {
+        this.TextMes = TextMes;
     }
+
+    
 
 
 }

@@ -8,7 +8,9 @@ package CONTROLL;
 import DAO.UsuarioDAO;
 import MODEL.Usuario;
 import VIEW.FrameCadastroUsuario;
+import java.awt.Toolkit;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -163,4 +165,7 @@ public class UsuarioControle {
         this.view.getBnt_UsuAtualizar().setEnabled(false);
     }
 
+     public void SetarIcone(){
+        this.view.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Icons/Icon_Frame_Main.png")));
+    }
 }

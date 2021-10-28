@@ -9,6 +9,7 @@ import DAO.FornecedorDAO;
 import MODEL.Fornecedor;
 import VIEW.FrameFornecedores;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -41,12 +42,12 @@ public class FornecedorControle {
         }
 
     }
-    
+
     //#METODO QUE ATIALIZA OS DADOS DE UM PRODUTO#//
-    public void AtualizarFornecedor(){
+    public void AtualizarFornecedor() {
         Fornecedor fornecedor = this.ObterModelo("atualizar");
         this.MostrarDados(fornecedor);
-        if (this.dao.AtualizarFornecedor(fornecedor.getID(),fornecedor)) {
+        if (this.dao.AtualizarFornecedor(fornecedor.getID(), fornecedor)) {
             JOptionPane.showMessageDialog(null, "FORNECEDOR ATUALIZADO COM SUCESSO!");
             this.Limpar();
             this.CarregarTabelaFornecedor();
@@ -54,7 +55,7 @@ public class FornecedorControle {
             JOptionPane.showMessageDialog(null, "NÃO FOI POSSIVEL ATUALIZAR O FORNECEDOR, VERIFIQUE OS DADOS DIGITADOS E TENTE NOVAMENTE!");
         }
     }
-    
+
     //#METODO QUE EXCLUI UM FORNECEDOR SELECIONADO NA TABELA#//
     public void ExcluirFornecedor() {
         this.index = this.view.getTable_Fornecedores().getSelectedRow();
@@ -131,17 +132,15 @@ public class FornecedorControle {
                 this.ListaDeFornecedores.get(i).getID(),
                 this.ListaDeFornecedores.get(i).getNome(),
                 this.ListaDeFornecedores.get(i).getCNPJ(),
-                this.ListaDeFornecedores.get(i).getTelefone(),
-               
-            };
+                this.ListaDeFornecedores.get(i).getTelefone(),};
             modelo.addRow(linha);
         }
         this.view.getTable_Fornecedores().setModel(modelo);
         this.view.getBnt_ForAtualizar().setEnabled(false);
     }
-    
+
     //#QUE SETA NOS CAMPOS DE FORNECEDOR AS INFORMAÇÕES DE UM FORNECEDOR PASSADO POR PARAMETRO#//
-    public void SetarModelo(Fornecedor modelo){
+    public void SetarModelo(Fornecedor modelo) {
         this.view.getTex_ForCodigo().setText(String.valueOf(modelo.getID()));
         this.view.getTex_ForNome().setText(modelo.getNome());
         this.view.getTex_ForCNPJ().setText(modelo.getCNPJ());
@@ -155,25 +154,27 @@ public class FornecedorControle {
         this.view.getBnt_ForLimpar().setEnabled(false);
         this.view.getBnt_ForAtualizar().setEnabled(true);
     }
-    
+
     //#METODO QUE SETA AS INFORMAÇÕES DE UM FORNECEDOR SELECIONADO NA TABELA NOS CAMPOS DO FORMULARIO#//
-    public void Editar(){
+    public void Editar() {
         this.index = this.view.getTable_Fornecedores().getSelectedRow();
         this.SetarModelo(this.dao.ListarFornecedores().get(index));
         this.view.getBnt_ForCadastrar().setEnabled(false);
         this.view.getBnt_ForLimpar().setEnabled(false);
         this.view.getBnt_ForAtualizar().setEnabled(true);
-        
+
     }
-    
+
     //#CANCELA UMA AÇÃO#//
-    public void Cancelar(){
+    public void Cancelar() {
         this.Limpar();
         this.view.getBnt_ForCadastrar().setEnabled(true);
         this.view.getBnt_ForExcluir().setEnabled(true);
         this.view.getBnt_ForAtualizar().setEnabled(false);
-        
-        
+
     }
 
+    public void SetarIcone() {
+        this.view.setFrameIcon(new ImageIcon(getClass().getResource("/Icons/Icon_Frame_Main.png")));
+    }
 }

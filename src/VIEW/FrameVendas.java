@@ -31,6 +31,7 @@ public class FrameVendas extends javax.swing.JInternalFrame {
         this.controle.PreencherBoxCliente();
         this.controle.SetarData();
         this.controle.teste();
+        this.controle.SetarIcone();
     }
 
     /**

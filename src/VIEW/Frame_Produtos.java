@@ -30,6 +30,7 @@ public class Frame_Produtos extends javax.swing.JInternalFrame {
         this.controle = new ProdutoControle(this);
         this.controle.CarregarForncedor();
         this.controle.CarregarTabelaProdutos();
+        this.controle.SetarIcone();
 
     }
 

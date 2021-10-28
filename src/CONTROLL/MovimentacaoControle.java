@@ -11,6 +11,7 @@ import MODEL.Pedido;
 import MODEL.Produto;
 import VIEW.Frame_movimentacao;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -78,7 +79,7 @@ public class MovimentacaoControle {
         this.SetarCampos(this.ListaDePedidos.get(index), Total_itens);
 
     }
-    
+
     //#SETANDO O PEDIDO SELECIONANDO NOS CAMPOS#//
     public void SetarCampos(Pedido pedido, int quant) {
         this.view.getTex_pedcod().setText(String.valueOf(pedido.getCodigo()));
@@ -90,4 +91,7 @@ public class MovimentacaoControle {
         this.view.getTextFormaPagaemento().setText(pedido.getFormaDePagamento());
     }
 
+    public void SetarIcone() {
+        this.view.setFrameIcon(new ImageIcon(getClass().getResource("/Icons/Icon_Frame_Main.png")));
+    }
 }

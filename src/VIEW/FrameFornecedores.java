@@ -29,6 +29,7 @@ public class FrameFornecedores extends javax.swing.JInternalFrame {
         initComponents();
         this.controle = new FornecedorControle(this);
         this.controle.CarregarTabelaFornecedor();
+        this.controle.SetarIcone();
 
     }
 
