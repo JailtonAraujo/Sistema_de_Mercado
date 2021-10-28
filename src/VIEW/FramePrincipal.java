@@ -78,6 +78,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         GerenciarUsuarios = new javax.swing.JMenuItem();
         GerenciarClientes = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
+        MenuPagar = new javax.swing.JMenuItem();
         Menu_Fornecedores = new javax.swing.JMenu();
         GerenciarForncedores = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
@@ -365,6 +366,14 @@ public class FramePrincipal extends javax.swing.JFrame {
         });
         GerenciarClientes.add(jMenuItem3);
 
+        MenuPagar.setText("PAGAR");
+        MenuPagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuPagarActionPerformed(evt);
+            }
+        });
+        GerenciarClientes.add(MenuPagar);
+
         jMenuBar1.add(GerenciarClientes);
 
         Menu_Fornecedores.setText("FORNECEDORES");
@@ -641,6 +650,17 @@ public class FramePrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
+    private void MenuPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPagarActionPerformed
+        FramePagamento tela;
+        try{
+            tela = new FramePagamento();
+            tela.setVisible(true);
+            Deskpane.add(tela);
+        }catch(Exception ex){
+        
+        ex.printStackTrace();}
+    }//GEN-LAST:event_MenuPagarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -692,6 +712,7 @@ public class FramePrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel Lbl_Usuario;
     private javax.swing.JLabel Lbl_data;
     private javax.swing.JLabel Lbl_divisao;
+    private javax.swing.JMenuItem MenuPagar;
     private javax.swing.JMenu Menu_Ajuda;
     private javax.swing.JMenu Menu_Financas;
     private javax.swing.JMenu Menu_Fornecedores;
