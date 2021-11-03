@@ -142,7 +142,7 @@ public class ClienteControle {
 
     //#METODO QUE CARREGA A TABELA DE CLIENTES COM TODOS OS CLIENTES CADASTRADOS#//
     public void CarregarTabelaClientes() {
-        this.ListaDeClientes = this.dao.ListarClientes();
+        this.ListaDeClientes = this.dao.ListarClientes("");
 
         DefaultTableModel modelo = new DefaultTableModel(
                 new Object[]{"Nome", "CPF", "Telefone", "Logradouro"}, 0);
@@ -185,7 +185,7 @@ public class ClienteControle {
     //#FUNÇÃO QUE SETA AS INFORMAÇÕES DE UM CLIENTE SELECIONADO NA TABELA NOS CAMPOS DO FORMULARIO#//
     public void Editar() {
         this.index = this.view.getTable_Clientes().getSelectedRow();
-        this.SetarModelo(this.dao.ListarClientes().get(index));
+        this.SetarModelo(this.dao.ListarClientes("").get(index));
         this.view.getBnt_CliCadastro().setEnabled(false);
         this.view.getBnt_CliEditar().setEnabled(false);
         this.view.getBnt_CliExcluir().setEnabled(false);

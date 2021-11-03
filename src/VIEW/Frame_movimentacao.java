@@ -26,6 +26,7 @@ public class Frame_movimentacao extends javax.swing.JInternalFrame {
         initComponents();
         this.controle = new MovimentacaoControle(this);
         this.controle.CarregarTabelaPedidos();
+        this.controle.SetarIcone();
 
     }
 
@@ -318,7 +319,7 @@ public class Frame_movimentacao extends javax.swing.JInternalFrame {
 
     private void Table_pedidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Table_pedidosMouseClicked
         this.controle.CarregarTabelaItemPedido();
-        this.controle.SetarIcone();
+       
     }//GEN-LAST:event_Table_pedidosMouseClicked
 
 

@@ -53,8 +53,8 @@ public class ClienteDAO {
         }
     }
 
-    public ArrayList<Cliente> ListarClientes() {
-        String sql = "SELECT * FROM cliente ORDER BY clinome";
+    public ArrayList<Cliente> ListarClientes(String nome) {
+        String sql = "SELECT * FROM cliente WHERE clinome LIKE '"+nome+"%' ORDER BY clinome";
         this.Clientes = new ArrayList<Cliente>();
 
         try {
