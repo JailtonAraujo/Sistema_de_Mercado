@@ -35,15 +35,19 @@ public class FrameRalatorios extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        BtnConfirmar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        TextMes = new javax.swing.JTextField();
+        BtnConfirmar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        TextMes = new javax.swing.JFormattedTextField();
 
         setClosable(true);
         setMaximizable(true);
         setResizable(true);
         setTitle("RELAORIO MENSAL");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setText("DIGITE O MÊS E O ANO QUE DESEJA OBTER O RELATORIO");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 27, -1, -1));
 
         BtnConfirmar.setText("CONFIRMAR");
         BtnConfirmar.addActionListener(new java.awt.event.ActionListener() {
@@ -51,42 +55,25 @@ public class FrameRalatorios extends javax.swing.JInternalFrame {
                 BtnConfirmarActionPerformed(evt);
             }
         });
+        getContentPane().add(BtnConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(218, 160, -1, -1));
 
-        jLabel1.setText("DIGITE O MÊS À QUAL DESEJA GERAR O RELATORIO");
+        jLabel2.setText("EX: 10-2021");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(231, 85, -1, -1));
 
-        jLabel2.setText("EX: Fevereiro = 02");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(215, 215, 215)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(BtnConfirmar)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(TextMes, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(217, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(27, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(TextMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(BtnConfirmar)
-                .addContainerGap(70, Short.MAX_VALUE))
-        );
+        try {
+            TextMes.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        TextMes.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TextMes.setText("gfgdf");
+        TextMes.setToolTipText("");
+        TextMes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TextMesActionPerformed(evt);
+            }
+        });
+        getContentPane().add(TextMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(221, 113, 92, -1));
 
         setBounds(650, 0, 535, 279);
     }// </editor-fold>//GEN-END:initComponents
@@ -95,10 +82,14 @@ public class FrameRalatorios extends javax.swing.JInternalFrame {
        this.controle.RelatorioMensal();
     }//GEN-LAST:event_BtnConfirmarActionPerformed
 
+    private void TextMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextMesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextMesActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnConfirmar;
-    private javax.swing.JTextField TextMes;
+    private javax.swing.JFormattedTextField TextMes;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
@@ -111,13 +102,17 @@ public class FrameRalatorios extends javax.swing.JInternalFrame {
         this.BtnConfirmar = BtnConfirmar;
     }
 
-    public JTextField getTextMes() {
+    public JFormattedTextField getTextMes() {
         return TextMes;
     }
 
-    public void setTextMes(JTextField TextMes) {
+    public void setTextMes(JFormattedTextField TextMes) {
         this.TextMes = TextMes;
     }
+
+   
+
+    
 
     
 

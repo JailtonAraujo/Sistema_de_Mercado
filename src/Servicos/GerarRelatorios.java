@@ -38,14 +38,15 @@ public class GerarRelatorios {
             }
         }
 
-        public void GerarRelatorioMensal(String mes){
+        public void GerarRelatorioMensal(String data){
             try{
             
             InputStream CaminhoDoRelatorio = this.getClass().getClassLoader().getResourceAsStream("Relatorios/Relatorio_de_Vendas_Clausura.jasper");
             
             //CLAUSURA QUE IRÁ CONTER O MES OBTIDO ATRAVEZ DA ENTRADA NA VIEW E PASSADA PARA O DOCUMENTO JASPER//
             HashMap clausura = new HashMap();
-            clausura.put("mes", mes);
+            clausura.put("mes", data.substring(0,2));
+            clausura.put("Ano", data.substring(3,7));
             
             
             //BUSCANDO, MONTANDO E PASSANDO A CLAUSURA PARA O REALATORIO

@@ -12,6 +12,9 @@
 	<parameter name="mes" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
+	<parameter name="Ano" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[SELECT
      pedido.`peddata` AS pedido_peddata,
@@ -23,7 +26,7 @@ FROM
      `cliente` cliente INNER JOIN `pedido` pedido ON cliente.`clicod` = pedido.`clicod`
      INNER JOIN `usuario` usuario ON pedido.`usucodigo` = usuario.`usucodigo`
 WHERE
-     MONTH(pedido.peddata) = $P{mes}]]>
+     MONTH(pedido.peddata) = $P{mes} and YEAR(pedido.peddata) = $P{Ano}]]>
 	</queryString>
 	<field name="pedido_peddata" class="java.sql.Date"/>
 	<field name="pedido_ped_valor_total" class="java.math.BigDecimal"/>

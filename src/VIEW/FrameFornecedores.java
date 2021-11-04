@@ -104,6 +104,7 @@ public class FrameFornecedores extends javax.swing.JInternalFrame {
         Tex_ForCodigo.setText("0");
 
         Tex_ForNome.setForeground(new java.awt.Color(0, 0, 0));
+        Tex_ForNome.setToolTipText("");
 
         Tex_ForEmail.setForeground(new java.awt.Color(0, 0, 0));
 
