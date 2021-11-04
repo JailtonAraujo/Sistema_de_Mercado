@@ -47,6 +47,7 @@ public class GerarRelatorios {
             HashMap clausura = new HashMap();
             clausura.put("mes", mes);
             
+            
             //BUSCANDO, MONTANDO E PASSANDO A CLAUSURA PARA O REALATORIO
             JasperPrint print = JasperFillManager.fillReport(CaminhoDoRelatorio, clausura, ConectionFactory.getConnection());
             

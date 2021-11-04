@@ -74,6 +74,8 @@ public class FrameClientes extends javax.swing.JInternalFrame {
         Tex_CliNumero = new javax.swing.JTextField();
         Tex_CliComplemento = new javax.swing.JTextField();
         Tex_CliCep = new javax.swing.JFormattedTextField();
+        TextSearch = new javax.swing.JTextField();
+        BtnSearch = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         Table_Clientes = new javax.swing.JTable();
         Bnt_CliEditar = new javax.swing.JButton();
@@ -211,9 +213,12 @@ public class FrameClientes extends javax.swing.JInternalFrame {
                     .addComponent(jLabel6))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Tex_CliEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Tex_CliTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(153, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(Tex_CliEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(153, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(Tex_CliTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -296,6 +301,19 @@ public class FrameClientes extends javax.swing.JInternalFrame {
             ex.printStackTrace();
         }
 
+        BtnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/search.png"))); // NOI18N
+        BtnSearch.setToolTipText("");
+        BtnSearch.setAutoscrolls(true);
+        BtnSearch.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BtnSearch.setMargin(new java.awt.Insets(4, 14, 4, 14));
+        BtnSearch.setMaximumSize(new java.awt.Dimension(54, 50));
+        BtnSearch.setMinimumSize(new java.awt.Dimension(54, 50));
+        BtnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnSearchActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -323,14 +341,21 @@ public class FrameClientes extends javax.swing.JInternalFrame {
                                     .addComponent(Tex_CliBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(Tex_CliComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(Tex_CliCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Tex_CliEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(Tex_CliEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 70, Short.MAX_VALUE))
                             .addComponent(jLabel12))
-                        .addGap(0, 123, Short.MAX_VALUE))
+                        .addGap(53, 53, 53))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel13)
                             .addComponent(jLabel7))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(185, 185, 185)
+                .addComponent(TextSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(BtnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -351,7 +376,7 @@ public class FrameClientes extends javax.swing.JInternalFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(Tex_CliComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(15, 15, 15)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(Tex_CliBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -363,7 +388,11 @@ public class FrameClientes extends javax.swing.JInternalFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
                     .addComponent(Tex_CliEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(BtnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TextSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(16, 16, 16))
         );
 
         jScrollPane1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)), "Relação de Clientes", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 14), new java.awt.Color(0, 0, 0))); // NOI18N
@@ -488,9 +517,9 @@ public class FrameClientes extends javax.swing.JInternalFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(26, 26, 26)
+                                .addGap(30, 30, 30)
                                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(59, 59, 59)
+                                .addGap(55, 55, 55)
                                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
@@ -512,11 +541,11 @@ public class FrameClientes extends javax.swing.JInternalFrame {
                         .addComponent(jLabel1)
                         .addGap(15, 15, 15)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(54, 54, 54)))
@@ -592,6 +621,10 @@ public class FrameClientes extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TextDebitoActionPerformed
 
+    private void BtnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSearchActionPerformed
+        this.controle.CarregarTabelaClientes();
+    }//GEN-LAST:event_BtnSearchActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Bnt_CliAtualizar;
@@ -600,6 +633,7 @@ public class FrameClientes extends javax.swing.JInternalFrame {
     private javax.swing.JButton Bnt_CliEditar;
     private javax.swing.JButton Bnt_CliExcluir;
     private javax.swing.JButton Bnt_CliLimpar;
+    private javax.swing.JButton BtnSearch;
     private javax.swing.JTable Table_Clientes;
     private javax.swing.JTextField Tex_CliBairro;
     private javax.swing.JFormattedTextField Tex_CliCep;
@@ -614,6 +648,7 @@ public class FrameClientes extends javax.swing.JInternalFrame {
     private javax.swing.JTextField Tex_CliNumero;
     private javax.swing.JFormattedTextField Tex_CliTelefone;
     private javax.swing.JTextField TextDebito;
+    private javax.swing.JTextField TextSearch;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -793,6 +828,22 @@ public class FrameClientes extends javax.swing.JInternalFrame {
 
     public void setTextDebito(JTextField TextDebito) {
         this.TextDebito = TextDebito;
+    }
+
+    public JButton getBtnSearch() {
+        return BtnSearch;
+    }
+
+    public void setBtnSearch(JButton BtnSearch) {
+        this.BtnSearch = BtnSearch;
+    }
+
+    public JTextField getTextSearch() {
+        return TextSearch;
+    }
+
+    public void setTextSearch(JTextField TextSearch) {
+        this.TextSearch = TextSearch;
     }
 
 }

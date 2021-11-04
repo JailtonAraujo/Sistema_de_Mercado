@@ -26,6 +26,7 @@ public class FramePagamento extends javax.swing.JInternalFrame {
         this.setMaximum(true);
         this.controle = new PagamentoController(this);
         this.controle.CarregarTBLClientes();
+        this.controle.SetarIcone();
         
     }
 
@@ -59,6 +60,9 @@ public class FramePagamento extends javax.swing.JInternalFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0))));
 
         TextTotal.setEditable(false);
+        TextTotal.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+
+        TextValorAbater.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
         jLabel2.setText("TOTAL:");
 
@@ -195,7 +199,7 @@ public class FramePagamento extends javax.swing.JInternalFrame {
                     .addComponent(jScrollPane2)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );

@@ -52,7 +52,7 @@ public class FrameRalatorios extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel1.setText("DIGITE O MÊS À QUAL DESEJA GERAR O REALTORIO");
+        jLabel1.setText("DIGITE O MÊS À QUAL DESEJA GERAR O RELATORIO");
 
         jLabel2.setText("EX: Fevereiro = 02");
 
@@ -71,7 +71,7 @@ public class FrameRalatorios extends javax.swing.JInternalFrame {
                     .addComponent(BtnConfirmar)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(15, 15, 15)
-                        .addComponent(TextMes, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(TextMes, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(217, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(

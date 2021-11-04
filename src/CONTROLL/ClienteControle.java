@@ -132,6 +132,7 @@ public class ClienteControle {
         this.view.getTex_CliCidade().setText("");
         this.view.getTex_CliEstado().setText("");
         this.view.getTextDebito().setText("0.0");
+        this.view.getTextSearch().setText("");
         this.view.getBnt_CliCadastro().setEnabled(true);
         this.view.getBnt_CliLimpar().setEnabled(true);
         this.view.getBnt_CliEditar().setEnabled(true);
@@ -142,7 +143,9 @@ public class ClienteControle {
 
     //#METODO QUE CARREGA A TABELA DE CLIENTES COM TODOS OS CLIENTES CADASTRADOS#//
     public void CarregarTabelaClientes() {
-        this.ListaDeClientes = this.dao.ListarClientes("");
+        String search = "";
+        search = this.view.getTextSearch().getText();
+        this.ListaDeClientes = this.dao.ListarClientes(search);
 
         DefaultTableModel modelo = new DefaultTableModel(
                 new Object[]{"Nome", "CPF", "Telefone", "Logradouro"}, 0);
@@ -185,7 +188,7 @@ public class ClienteControle {
     //#FUNÇÃO QUE SETA AS INFORMAÇÕES DE UM CLIENTE SELECIONADO NA TABELA NOS CAMPOS DO FORMULARIO#//
     public void Editar() {
         this.index = this.view.getTable_Clientes().getSelectedRow();
-        this.SetarModelo(this.dao.ListarClientes("").get(index));
+        this.SetarModelo(this.ListaDeClientes.get(index));
         this.view.getBnt_CliCadastro().setEnabled(false);
         this.view.getBnt_CliEditar().setEnabled(false);
         this.view.getBnt_CliExcluir().setEnabled(false);

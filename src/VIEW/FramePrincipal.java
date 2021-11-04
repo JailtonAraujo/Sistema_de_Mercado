@@ -366,6 +366,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         });
         GerenciarClientes.add(jMenuItem3);
 
+        MenuPagar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Icon_pay.png"))); // NOI18N
         MenuPagar.setText("PAGAR");
         MenuPagar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

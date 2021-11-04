@@ -41,7 +41,7 @@
                   <Component id="BtnConfirmar" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                      <Component id="TextMes" min="-2" pref="70" max="-2" attributes="0"/>
+                      <Component id="TextMes" min="-2" pref="68" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="217" max="32767" attributes="0"/>
@@ -75,7 +75,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="DIGITE O M&#xca;S &#xc0; QUAL DESEJA GERAR O REALTORIO"/>
+        <Property name="text" type="java.lang.String" value="DIGITE O M&#xca;S &#xc0; QUAL DESEJA GERAR O RELATORIO"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="TextMes">

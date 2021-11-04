@@ -176,7 +176,7 @@ public class VendaControle {
 
     // METODO QUE CARREGA TODOS OS CLIENTES DO BANCO E LISTA NO COMBO BOX DE CLIENTES.//
     public void PreencherBoxCliente() {
-        this.ListaDeClientes = this.cliente_dao.ListarClientes(null);
+        this.ListaDeClientes = this.cliente_dao.ListarClientes("");
 
         DefaultComboBoxModel boxmodelo = (DefaultComboBoxModel) this.view.getBox_cliente().getModel();
 
