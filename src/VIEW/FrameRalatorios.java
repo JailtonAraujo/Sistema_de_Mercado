@@ -41,13 +41,10 @@ public class FrameRalatorios extends javax.swing.JInternalFrame {
         TextMes = new javax.swing.JFormattedTextField();
 
         setClosable(true);
-        setMaximizable(true);
         setResizable(true);
         setTitle("RELAORIO MENSAL");
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("DIGITE O MÊS E O ANO QUE DESEJA OBTER O RELATORIO");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 27, -1, -1));
 
         BtnConfirmar.setText("CONFIRMAR");
         BtnConfirmar.addActionListener(new java.awt.event.ActionListener() {
@@ -55,10 +52,8 @@ public class FrameRalatorios extends javax.swing.JInternalFrame {
                 BtnConfirmarActionPerformed(evt);
             }
         });
-        getContentPane().add(BtnConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(218, 160, -1, -1));
 
         jLabel2.setText("EX: 10-2021");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(231, 85, -1, -1));
 
         try {
             TextMes.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##-####")));
@@ -73,9 +68,43 @@ public class FrameRalatorios extends javax.swing.JInternalFrame {
                 TextMesActionPerformed(evt);
             }
         });
-        getContentPane().add(TextMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(221, 113, 92, -1));
 
-        setBounds(650, 0, 535, 279);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(111, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(105, 105, 105)
+                                .addComponent(BtnConfirmar))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(108, 108, 108)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(TextMes, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(121, 121, 121))
+                    .addComponent(jLabel1))
+                .addGap(98, 98, 98))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TextMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(BtnConfirmar)
+                .addContainerGap(31, Short.MAX_VALUE))
+        );
+
+        setBounds(650, 0, 535, 224);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnConfirmarActionPerformed

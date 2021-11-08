@@ -21,13 +21,14 @@ public class FramePagamento extends javax.swing.JInternalFrame {
      * Creates new form Pagamento
      */
     private final PagamentoController controle;
+
     public FramePagamento() throws PropertyVetoException {
         initComponents();
         this.setMaximum(true);
         this.controle = new PagamentoController(this);
         this.controle.CarregarTBLClientes();
         this.controle.SetarIcone();
-        
+
     }
 
     /**
@@ -51,6 +52,7 @@ public class FramePagamento extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         Table_Clientes = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
+        TablePagamentos = new javax.swing.JTable();
 
         setClosable(true);
         setIconifiable(true);
@@ -135,6 +137,35 @@ public class FramePagamento extends javax.swing.JInternalFrame {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 292, 750, -1));
 
         jScrollPane2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "PAGAMENTOS"));
+
+        TablePagamentos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, true, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(TablePagamentos);
+
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 26, 724, 707));
 
         setBounds(0, 0, 1571, 761);
@@ -146,16 +177,18 @@ public class FramePagamento extends javax.swing.JInternalFrame {
 
     private void Table_ClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Table_ClientesMouseClicked
         this.controle.SelecionarCliente();
+
     }//GEN-LAST:event_Table_ClientesMouseClicked
 
     private void BtnAbaterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAbaterActionPerformed
-        this.controle.AbaterDebito();
+        this.controle.EfetuarPagamento();
     }//GEN-LAST:event_BtnAbaterActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAbater;
     private javax.swing.JButton BtnPesquisar;
+    private javax.swing.JTable TablePagamentos;
     private javax.swing.JTable Table_Clientes;
     private javax.swing.JTextField TextPesquisar;
     private javax.swing.JTextField TextTotal;
@@ -216,5 +249,12 @@ public class FramePagamento extends javax.swing.JInternalFrame {
         this.TextValorAbater = TextValorAbater;
     }
 
+    public JTable getTablePagamentos() {
+        return TablePagamentos;
+    }
+
+    public void setTablePagamentos(JTable TablePagamentos) {
+        this.TablePagamentos = TablePagamentos;
+    }
 
 }

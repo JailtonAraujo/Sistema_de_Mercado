@@ -3,11 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/jailt/Documents/GitHub/MeusProjetos/Sistema_de_Mercado/src/MODEL/Pagamento.java</file>
+            <file>file:/C:/Users/jailt/Documents/GitHub/MeusProjetos/Sistema_de_Mercado/src/DAO/ItemPedidoDAO.java</file>
             <file>file:/C:/Users/jailt/Documents/GitHub/MeusProjetos/Sistema_de_Mercado/src/CONTROLL/PagamentoController.java</file>
-            <file>file:/C:/Users/jailt/Documents/GitHub/MeusProjetos/Sistema_de_Mercado/src/VIEW/FrameRalatorios.java</file>
-            <file>file:/C:/Users/jailt/Documents/GitHub/MeusProjetos/Sistema_de_Mercado/src/VIEW/FrameFornecedores.java</file>
+            <file>file:/C:/Users/jailt/Documents/GitHub/MeusProjetos/Sistema_de_Mercado/src/DAO/PagamentoDAO.java</file>
+            <file>file:/C:/Users/jailt/Documents/GitHub/MeusProjetos/Sistema_de_Mercado/src/CONTROLL/VendaControle.java</file>
             <file>file:/C:/Users/jailt/Documents/GitHub/MeusProjetos/Sistema_de_Mercado/src/VIEW/FramePagamento.java</file>
-            <file>file:/C:/Users/jailt/Documents/GitHub/MeusProjetos/Sistema_de_Mercado/src/Servicos/GerarRelatorios.java</file>
         </group>
     </open-files>
 </project-private>
