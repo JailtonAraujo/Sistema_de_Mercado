@@ -85,15 +85,16 @@ public class FramePagamento extends javax.swing.JInternalFrame {
         jPanel1.add(BtnAbater, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 257, -1));
 
         TextPesquisar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jPanel1.add(TextPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, 259, 30));
+        jPanel1.add(TextPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, 259, 24));
 
         BtnPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/search.png"))); // NOI18N
+        BtnPesquisar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         BtnPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnPesquisarActionPerformed(evt);
             }
         });
-        jPanel1.add(BtnPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 76, 45, 38));
+        jPanel1.add(BtnPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 140, 45, 24));
 
         jLabel4.setText("PESQUISAR CLIENTE:");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 22, -1, -1));

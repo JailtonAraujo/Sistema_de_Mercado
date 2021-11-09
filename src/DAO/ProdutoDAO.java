@@ -47,8 +47,8 @@ public class ProdutoDAO {
 
     }
 
-    public ArrayList<Produto> ListarProdutos() {
-        String sql = "select a. *, b.fornome from produto a join fornecedor b on b.forcodigo = a.forcod ORDER BY pronome";
+    public ArrayList<Produto> ListarProdutos(String nome) {
+        String sql = "select a. *, b.fornome from produto a join fornecedor b on b.forcodigo = a.forcod WHERE pronome LIKE '"+nome+"%' ORDER BY pronome";
         this.Produtos = new ArrayList<Produto>();
 
         try {

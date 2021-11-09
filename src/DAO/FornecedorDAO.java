@@ -47,8 +47,8 @@ public class FornecedorDAO {
 
     }
 
-    public ArrayList<Fornecedor> ListarFornecedores() {
-        String slq = "SELECT * FROM fornecedor ORDER BY fornome";
+    public ArrayList<Fornecedor> ListarFornecedores(String nome) {
+        String slq = "SELECT * FROM fornecedor WHERE fornome LIKE '"+nome+"%' ORDER BY fornome";
         this.Fornecedores = new ArrayList<Fornecedor>();
 
         try {

@@ -102,7 +102,7 @@ public class ProdutoControle {
     //#METODO QUE CARREGA O COMBOBOX DE FORNCEDORES#//
     public void CarregarForncedor() {
 
-        ArrayList<Fornecedor> ListaDeFornecedor = this.forncedordao.ListarFornecedores();
+        ArrayList<Fornecedor> ListaDeFornecedor = this.forncedordao.ListarFornecedores("");
 
         DefaultComboBoxModel comboxModelo = (DefaultComboBoxModel) this.view.getBox_ProForNome().getModel();
 
@@ -131,7 +131,9 @@ public class ProdutoControle {
 
     //#CARREGA A TEBELA DE PRODUTOS COM TODOS OS PRODUTOS DO BANCO DE DADOS#//
     public void CarregarTabelaProdutos() {
-        this.ListaDeProdutos = this.produtodao.ListarProdutos();
+        String Search = "";
+        Search = this.view.getTextSearch().getText();
+        this.ListaDeProdutos = this.produtodao.ListarProdutos(Search);
 
         DefaultTableModel modelo = new DefaultTableModel(
                 new Object[]{"Nome", "Descrição", "Valor Unitario", "Codigo do Fornecedor"}, 0);
@@ -183,7 +185,7 @@ public class ProdutoControle {
     //#METODO QUE SETA AS INFORMAÇÕES DE UM PRODUTO SELECIONADO NA TABELA NOS CAMPOS DO FORMULARIO#//
     public void Editar() {
         this.index = this.view.getTabel_Produtos().getSelectedRow();
-        this.SetarProduto(this.produtodao.ListarProdutos().get(index));
+        this.SetarProduto(this.ListaDeProdutos.get(index));
         this.view.getBtn_cadastrar().setEnabled(false);
         this.view.getBtn_Limpar().setEnabled(false);
         this.view.getBtn_Limpar().setEnabled(true);

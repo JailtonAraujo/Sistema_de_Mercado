@@ -17,6 +17,7 @@ public class Pedido {
     private Usuario usuario;
     private float Valor_total;
     private String FormaDePagamento;
+    private String comentario;
 
     public Pedido (){}
     
@@ -28,21 +29,23 @@ public class Pedido {
         this.cliente = cliente;
     }
 
-    public Pedido(String data, Cliente cliente,Usuario usuario, float Valor_total,String FormaDePagamento) {
+    public Pedido(String data, Cliente cliente,Usuario usuario, float Valor_total,String FormaDePagamento, String comentario) {
         this.data = data;
         this.cliente = cliente;
         this.usuario = usuario;
         this.Valor_total = Valor_total;
         this.FormaDePagamento = FormaDePagamento;
+        this.comentario = comentario;
     }
 
-    public Pedido(int codigo, String data, Cliente cliente, Usuario usuario, float Valor_total, String FormaDePagamento) {
+    public Pedido(int codigo, String data, Cliente cliente, Usuario usuario, float Valor_total, String FormaDePagamento,String comentario) {
         this.codigo = codigo;
         this.data = data;
         this.cliente = cliente;
         this.usuario = usuario;
         this.Valor_total = Valor_total;
         this.FormaDePagamento = FormaDePagamento;
+        this.comentario = comentario;
     }
     
     
@@ -99,6 +102,14 @@ public class Pedido {
 
     public void setFormaDePagamento(String FormaDePagamento) {
         this.FormaDePagamento = FormaDePagamento;
+    }
+
+    public String getComentario() {
+        return comentario;
+    }
+
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
     }
    
     

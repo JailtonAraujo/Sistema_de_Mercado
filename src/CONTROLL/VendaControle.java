@@ -34,7 +34,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Jailton
  */
 public class VendaControle {
-
+    
     private final FrameVendas view;
     private final ProdutoDAO produto_dao;
     private final ClienteDAO cliente_dao;
@@ -47,7 +47,7 @@ public class VendaControle {
     ArrayList<Produto> ListaDeProdutos;
     ArrayList<Cliente> ListaDeClientes;
     ArrayList<ItenPedido> ListaDeItens = new ArrayList<ItenPedido>();
-
+    
     public VendaControle(FrameVendas view) {
         this.view = view;
         this.produto_dao = new ProdutoDAO();
@@ -56,67 +56,66 @@ public class VendaControle {
         this.itemdao = new ItemPedidoDAO();
         this.LoginDao = new LoginDAO();
         this.UsuarioDao = new UsuarioDAO();
-
+        
     }
 
     //METODO QUE CADASTRA UM PEDIDO COMPLETO JUNTO COM TODOS ITEMS//
     public void FecharPedido() {
-        int opc = JOptionPane.showConfirmDialog(null,"TEM CERTEZA QUE DESEJA FECHAR O PEDIDO ATUAL?","ATENÇÃO",JOptionPane.YES_NO_OPTION);
+        int opc = JOptionPane.showConfirmDialog(null, "TEM CERTEZA QUE DESEJA FECHAR O PEDIDO ATUAL?", "ATENÇÃO", JOptionPane.YES_NO_OPTION);
         
-        if (opc == 0){
-              
+        if (opc == 0) {
+            
             String data = this.view.getTex_data().getText();
-        data = this.converterData(data);
-        Usuario usuario = new Usuario(this.LoginDao.ReturnUsu());
-        Cliente cliente = (Cliente) this.view.getBox_cliente().getSelectedItem();
-        float Total_pedido = Float.valueOf(this.view.getTex_valor_total_dos_peididos().getText());
-        String FormaDePagamento = this.view.getBoxFormaPagamento().getSelectedItem().toString();
-        
-        Pedido pedido = new Pedido(data, cliente, usuario, Total_pedido, FormaDePagamento );
-
-        int PedCod = this.pedidodao.AdicionarPedido(pedido);
-        pedido.setCodigo(PedCod);
-        
-        if ("Debito".equals(this.view.getBoxFormaPagamento().getSelectedItem().toString())){
-            this.AdicionarNaConta(cliente, Total_pedido);
-        }
-        else if("Credito".equals(this.view.getBoxFormaPagamento().getSelectedItem().toString())){
-            this.view.getBox_cliente().setToolTipText("COMPRAS A VISTA");
-        }
-
-        for (ItenPedido item : this.ListaDeItens) {
-            item.setPedido(PedCod);
-        }
-
-        for (ItenPedido item : this.ListaDeItens) {
-            if (this.itemdao.AdicionatItemPedido(item)) {
-                System.out.println("Item " + item.getProduto().getNome() + "adicionado com sucesso");
-            } else {
-                System.err.println("Erro ao adicionar item");
+            data = this.converterData(data);
+            Usuario usuario = new Usuario(this.LoginDao.ReturnUsu());
+            Cliente cliente = (Cliente) this.view.getBox_cliente().getSelectedItem();
+            float Total_pedido = Float.valueOf(this.view.getTex_valor_total_dos_peididos().getText());
+            String FormaDePagamento = this.view.getBoxFormaPagamento().getSelectedItem().toString();
+            String comentario = this.view.getTextComentario().getText();
+            
+            Pedido pedido = new Pedido(data, cliente, usuario, Total_pedido, FormaDePagamento, comentario);
+            
+            int PedCod = this.pedidodao.AdicionarPedido(pedido);
+            pedido.setCodigo(PedCod);
+            
+            if ("Debito".equals(this.view.getBoxFormaPagamento().getSelectedItem().toString())) {
+                this.AdicionarNaConta(cliente, Total_pedido);
+            } else if ("Credito".equals(this.view.getBoxFormaPagamento().getSelectedItem().toString())) {
+                this.view.getBox_cliente().setToolTipText("COMPRAS A VISTA");
             }
-
-        }
-        JOptionPane.showMessageDialog(null, "PEDIDO FECHADO COM SUCESSO!!");
-        this.ListaDeItens.clear();
-        this.CarregarTabelaDeItens();
-        this.limparCampos();
+            
+            for (ItenPedido item : this.ListaDeItens) {
+                item.setPedido(PedCod);
+            }
+            
+            for (ItenPedido item : this.ListaDeItens) {
+                if (this.itemdao.AdicionatItemPedido(item)) {
+                    System.out.println("Item " + item.getProduto().getNome() + "adicionado com sucesso");
+                } else {
+                    System.err.println("Erro ao adicionar item");
+                }
+                
+            }
+            JOptionPane.showMessageDialog(null, "PEDIDO FECHADO COM SUCESSO!!");
+            this.ListaDeItens.clear();
+            this.CarregarTabelaDeItens();
+            this.limparCampos();
         }
         
-
     }
-    
+
     //METODO QUE BUSCAR UM PRODUTO NO BD ATRAVES DA ENTRADA NO CAMPO CODIGO DO MESMO PELO LEITOR DE CODIGO DE BARRA QUE DISPARA O EVENTO DO TEXTFILD
     //  E CHAMA ESSE METODO//
-    public boolean AdicionarPedidoComLeitor(){
-        try{
-        String procod = this.view.getTex_vencod().getText();  
-        this.SetarModeloProduto(this.pedidodao.BuscarProduto(procod));
-        this.InserirItemNaTabela();
-        
-        return true;
-        }catch(Exception ex){
+    public boolean AdicionarPedidoComLeitor() {
+        try {
+            String procod = this.view.getTex_vencod().getText();
+            this.SetarModeloProduto(this.pedidodao.BuscarProduto(procod));
+            this.InserirItemNaTabela();
+            
+            return true;
+        } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "PRODUTO NÃO CADASTRADO!");
-        return false;
+            return false;
         }
         
     }
@@ -125,14 +124,14 @@ public class VendaControle {
     public void CarregarTabelaDeItens() {
         float ValorTotalPedido = 0;
         int TotalDeItens = 0;
-
+        
         DefaultTableModel modelo = new DefaultTableModel(
                 new Object[]{"Codigo", "Nome", "Quantidade", "Valor Unitario"}, 0);
-
+        
         for (ItenPedido item : this.ListaDeItens) {
             float valortotal = item.getProduto().getValorunitario()
                     * item.getQuantidade();
-
+            
             Object linha = new Object[]{
                 item.getProduto().getID(),
                 item.getProduto().getNome(),
@@ -156,7 +155,7 @@ public class VendaControle {
             this.CarregarTabelaDeItens();
             this.limparCampos();
         }
-
+        
     }
 
     // Setando o Produto da linha selecionada nos campos
@@ -171,27 +170,28 @@ public class VendaControle {
     public void SelecionarProduto() {
         int indexProduto = 0;
         indexProduto = this.view.getTable_Produtos().getSelectedRow();
-        this.SetarModeloProduto(this.produto_dao.ListarProdutos().get(indexProduto));
+        this.SetarModeloProduto(this.ListaDeProdutos.get(indexProduto));
     }
 
     // METODO QUE CARREGA TODOS OS CLIENTES DO BANCO E LISTA NO COMBO BOX DE CLIENTES.//
     public void PreencherBoxCliente() {
         this.ListaDeClientes = this.cliente_dao.ListarClientes("");
-
+        
         DefaultComboBoxModel boxmodelo = (DefaultComboBoxModel) this.view.getBox_cliente().getModel();
-
+        
         for (Cliente cliente : this.ListaDeClientes) {
             boxmodelo.addElement(cliente);
         }
-
+        
     }
 
     //METODO QUE CARREGA TODOS OS PRODUTOS NO BANCO E LISTA NA TABELA DE PRODUTOS//
     public void CarregarTabelaDeProdutos() {
-        this.ListaDeProdutos = this.produto_dao.ListarProdutos();
+        String Search = this.view.getTextSearch().getText();
+        this.ListaDeProdutos = this.produto_dao.ListarProdutos(Search);
         DefaultTableModel modelo = new DefaultTableModel(
                 new Object[]{"Codigo", "Nome", "Unidade", "Valor Unitario"}, 0);
-
+        
         for (Produto produto : this.ListaDeProdutos) {
             Object linha = new Object[]{
                 produto.getID(),
@@ -203,20 +203,20 @@ public class VendaControle {
         }
         this.view.getTable_Produtos().setModel(modelo);
     }
-
+    
     public String converterData(String passaData) {
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate data = LocalDate.parse(passaData, formato);
         System.out.println(data);
         return (data + "");
     }
-
+    
     public void SetarData() {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         Date hoje = new Date();
         String dt = sdf.format(hoje);
         this.view.getTex_data().setText(dt);
-
+        
     }
 
     //BOTÃO LIMPAR CAMPOS
@@ -225,36 +225,50 @@ public class VendaControle {
         this.view.getTex_vennome().setText("");
         this.view.getTex_venvalor().setText("");
         this.view.getTex_venquant().setText("1");
+        this.view.getTextDesconto().setText("0.0");
     }
-
+    
     public void ExcluirItem() {
         this.index = this.view.getTable_itenspedido().getSelectedRow();
         this.ListaDeItens.remove(index);
         this.CarregarTabelaDeItens();
     }
     
-   public void teste(){
-       String usuario;
-       usuario = this.UsuarioDao.BuscarUsuario(this.LoginDao.ReturnUsu());
-       
-       System.out.println(usuario);
-     
-   }
+    public void teste() {
+        String usuario;
+        usuario = this.UsuarioDao.BuscarUsuario(this.LoginDao.ReturnUsu());
         
-    //METODO QUE IRA SOMAR O VALOR TOTAL DA COMPRA AO DEBITO JA EXISTENTE DO CLIENTE//
-   public void AdicionarNaConta(Cliente cliente, float ValorCompra){
-       //PEGANDO O DEBITO ATUAL DO CLIENTE//
-       float debito = this.cliente_dao.BuscarDebito(cliente.getID());
-       
-       //ATRIBUINDO O VALOR DA COMPRA//
-      float debitototal = debito + Float.parseFloat(this.view.getTex_valor_total_dos_peididos().getText());
-       
-      //ALTERANDO O DEBITO DO CLIENTE NO BD//
-      this.cliente_dao.AlterarDebito(debitototal, cliente.getID());
-   }
-   
-   public void SetarIcone() {
-        this.view.setFrameIcon(new ImageIcon(getClass().getResource("/Icons/Icon_Frame_Main.png")));
+        System.out.println(usuario);
+        
     }
 
+    //METODO QUE IRA SOMAR O VALOR TOTAL DA COMPRA AO DEBITO JA EXISTENTE DO CLIENTE//
+    public void AdicionarNaConta(Cliente cliente, float ValorCompra) {
+        //PEGANDO O DEBITO ATUAL DO CLIENTE//
+        float debito = this.cliente_dao.BuscarDebito(cliente.getID());
+
+        //ATRIBUINDO O VALOR DA COMPRA//
+        float debitototal = debito + Float.parseFloat(this.view.getTex_valor_total_dos_peididos().getText());
+
+        //ALTERANDO O DEBITO DO CLIENTE NO BD//
+        this.cliente_dao.AlterarDebito(debitototal, cliente.getID());
+    }
+
+    //METODO QUE IRA ALTERAR O VALOR TOTAL DO PEDIDO CASO O CLIENTE COMPRE NO DEBITO E QUERIA PAGAR UMA PARTE DO VALOR//
+    public void Descontar() {
+        
+        float ValorTotal = Float.parseFloat(this.view.getTex_valor_total_dos_peididos().getText());
+        float ValorDescontar = Float.parseFloat(this.view.getTextDesconto().getText());
+        
+        int opc = JOptionPane.showConfirmDialog(null, "DESEJA FAZER O DESCONTO DE R$ " + ValorDescontar + " NO PEDIDO ATUAL?", "ATENÇÃO", JOptionPane.YES_NO_OPTION);
+        
+        if (opc == 0) {
+            this.view.getTex_valor_total_dos_peididos().setText(String.valueOf(ValorTotal - ValorDescontar));
+        }
+    }
+    
+    public void SetarIcone() {
+        this.view.setFrameIcon(new ImageIcon(getClass().getResource("/Icons/Icon_Frame_Main.png")));
+    }
+    
 }

@@ -123,7 +123,9 @@ public class FornecedorControle {
 
     //#METODO QUE CARREGA A TABELA DE FORNECEDORES COM TODOS OS FORNECEDORES CADASTRADOS#//
     public void CarregarTabelaFornecedor() {
-        this.ListaDeFornecedores = this.dao.ListarFornecedores();
+        String Search = "";
+        Search = this.view.getTextSearch().getText();
+        this.ListaDeFornecedores = this.dao.ListarFornecedores(Search);
 
         DefaultTableModel modelo = new DefaultTableModel(
                 new Object[]{"Codigo", "Nome", "CNPJ", "Telefone"}, 0);
@@ -158,7 +160,7 @@ public class FornecedorControle {
     //#METODO QUE SETA AS INFORMAÇÕES DE UM FORNECEDOR SELECIONADO NA TABELA NOS CAMPOS DO FORMULARIO#//
     public void Editar() {
         this.index = this.view.getTable_Fornecedores().getSelectedRow();
-        this.SetarModelo(this.dao.ListarFornecedores().get(index));
+        this.SetarModelo(this.ListaDeFornecedores.get(index));
         this.view.getBnt_ForCadastrar().setEnabled(false);
         this.view.getBnt_ForLimpar().setEnabled(false);
         this.view.getBnt_ForAtualizar().setEnabled(true);
@@ -177,4 +179,6 @@ public class FornecedorControle {
     public void SetarIcone() {
         this.view.setFrameIcon(new ImageIcon(getClass().getResource("/Icons/Icon_Frame_Main.png")));
     }
+    
+    
 }

@@ -99,6 +99,7 @@ public class PagamentoController {
             if (opc == 0) {
                 this.clienteDAO.AlterarDebito(ValorAbatido, cliente.getID());
                 this.pagamentoDAO.SalvarPagamento(pagamento);
+                JOptionPane.showMessageDialog(null, "PAGAMENTO RECEBIDO COM SUCESSO!");
                 this.CarregarTBLClientes();
                 
 

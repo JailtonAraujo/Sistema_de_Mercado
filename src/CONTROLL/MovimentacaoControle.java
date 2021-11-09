@@ -11,6 +11,7 @@ import MODEL.Pedido;
 import MODEL.Produto;
 import VIEW.Frame_movimentacao;
 import java.util.ArrayList;
+import java.util.HashMap;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 
@@ -33,8 +34,9 @@ public class MovimentacaoControle {
 
     //#CARREGANDO TABELA DE DE PEDIDOS COM TODOS OS REGISTROS DO BD#//
     public void CarregarTabelaPedidos() {
+        
         this.ListaDePedidos = new ArrayList<Pedido>();
-        this.ListaDePedidos = this.pedDAO.Listar();
+        this.ListaDePedidos = this.pedDAO.Listar(this.Parametros());
         DefaultTableModel modelo = (DefaultTableModel) this.view.getTable_pedidos().getModel();
 
         for (Pedido pedido : this.ListaDePedidos) {
@@ -89,6 +91,29 @@ public class MovimentacaoControle {
         this.view.getTex_valor_total().setText(String.valueOf(pedido.getValor_total()));
         this.view.getTex_total_itens().setText(String.valueOf(quant));
         this.view.getTextFormaPagaemento().setText(pedido.getFormaDePagamento());
+    }
+    
+    public HashMap Parametros(){
+        String opc = this.view.getBoxOpcPesquisa().getSelectedItem().toString();
+        String obj = "";
+        String Search = "";
+        
+        HashMap pars = new HashMap();
+        
+        if("Cliente".equals(opc)){
+            obj = "cliente.clinome";
+            Search = this.view.getTextSearch().getText();
+            pars.put("obj", obj);
+            pars.put("Search", Search);
+        }
+        else if("Data".equals(opc)){
+            obj = "pedido.peddata";
+            Search = this.view.getTextSearch().getText();
+            pars.put("obj", obj);
+            pars.put("Search", Search);
+        }
+            
+        return pars;
     }
 
     public void SetarIcone() {
