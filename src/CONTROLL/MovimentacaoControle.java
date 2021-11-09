@@ -37,11 +37,11 @@ public class MovimentacaoControle {
         
         this.ListaDePedidos = new ArrayList<Pedido>();
         this.ListaDePedidos = this.pedDAO.Listar(this.Parametros());
-        DefaultTableModel modelo = (DefaultTableModel) this.view.getTable_pedidos().getModel();
+        DefaultTableModel modelo = new DefaultTableModel(
+        new Object[]{"Cliente", "Vendedor", "Data", "Valor Total","Forma de pagamento"},0);
 
         for (Pedido pedido : this.ListaDePedidos) {
             Object linha[] = new Object[]{
-                pedido.getCodigo(),
                 pedido.getCliente().getNome(),
                 pedido.getUsuario().getNome(),
                 pedido.getData(),
@@ -91,6 +91,7 @@ public class MovimentacaoControle {
         this.view.getTex_valor_total().setText(String.valueOf(pedido.getValor_total()));
         this.view.getTex_total_itens().setText(String.valueOf(quant));
         this.view.getTextFormaPagaemento().setText(pedido.getFormaDePagamento());
+        this.view.getTextComentario().setText(pedido.getComentario());
     }
     
     public HashMap Parametros(){

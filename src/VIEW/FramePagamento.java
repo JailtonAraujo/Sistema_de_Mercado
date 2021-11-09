@@ -97,7 +97,7 @@ public class FramePagamento extends javax.swing.JInternalFrame {
         jPanel1.add(BtnPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 140, 45, 24));
 
         jLabel4.setText("PESQUISAR CLIENTE:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 22, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 120, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 26, 750, 200));
 

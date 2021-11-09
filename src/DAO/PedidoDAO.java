@@ -14,6 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -78,9 +79,19 @@ public class PedidoDAO {
         return produto;
     }
 
-    public ArrayList<Pedido> Listar() {
-        String sql = "select  a.pedcod, a.peddata, b.clinome, c.usunome, a.ped_valor_total, a.forma_de_pagamento FROM "
-                + "pedido a join cliente b on b.clicod = a.clicod join usuario c on c.usucodigo = a.usucodigo order by a.peddata desc";
+    public ArrayList<Pedido> Listar(HashMap pars) {
+        String sql = "SELECT \n"
+                + "pedido.pedcod,\n"
+                + "pedido.peddata,\n"
+                + "cliente.clinome,\n"
+                + "usuario.usunome,\n"
+                + "pedido.ped_valor_total,\n"
+                + "pedido.forma_de_pagamento,\n"
+                + "pedido.pedido_comentario\n"
+                + "FROM\n"
+                + "cliente cliente INNER JOIN pedido pedido ON cliente.clicod = pedido.clicod\n"
+                + "INNER JOIN usuario usuario ON usuario.usucodigo = pedido.usucodigo\n"
+                + "WHERE "+pars.get("obj")+" LIKE '"+pars.get("Search")+"%' ORDER BY pedido.peddata desc";
         this.Pedidos = new ArrayList<Pedido>();
         try {
             conn = ConectionFactory.getConnection();
@@ -89,20 +100,20 @@ public class PedidoDAO {
 
             while (rs.next()) {
                 Pedido pedido = new Pedido();
-                
+
                 pedido.setCodigo(rs.getInt(1));
                 pedido.setData(rs.getString(2));
                 pedido.setNomeCliente(rs.getString(3));
                 pedido.setNomeUsuario(rs.getString(4));
                 pedido.setValor_total(rs.getFloat(5));
                 pedido.setFormaDePagamento(rs.getString(6));
+                pedido.setComentario(rs.getString(7));
 
                 this.Pedidos.add(pedido);
             }
             conn.close();
             pst.close();
             rs.close();
-            
 
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -110,66 +121,65 @@ public class PedidoDAO {
 
         return Pedidos;
     }
-    
-    public ArrayList<Produto> RetornaPedidoPorduto(int Id){
+
+    public ArrayList<Produto> RetornaPedidoPorduto(int Id) {
         String sql = "SELECT c. * FROM produto c JOIN pedido_item b ON c.procodigo = b.procod JOIN pedido a ON b.pedcod = a.pedcod "
                 + "WHERE a.pedcod = ?";
         this.Pedido_Produto = new ArrayList<Produto>();
-        
-        try{
+
+        try {
             conn = ConectionFactory.getConnection();
             pst = conn.prepareStatement(sql);
             pst.setInt(1, Id);
             rs = pst.executeQuery();
-            
-            while(rs.next()){
+
+            while (rs.next()) {
                 Produto produto = new Produto();
-                
+
                 produto.setID(rs.getString(1));
                 produto.setFornecedor(rs.getInt(2));
                 produto.setNome(rs.getString(3));
                 produto.setDescricao(rs.getString(4));
                 produto.setUnidademedida(rs.getString(5));
                 produto.setValorunitario(rs.getFloat(6));
-                
+
                 this.Pedido_Produto.add(produto);
             }
-            
-        }catch(SQLException ex){
-            throw new RuntimeException("Erro ao buscar pedido_produto:" +ex);
+
+        } catch (SQLException ex) {
+            throw new RuntimeException("Erro ao buscar pedido_produto:" + ex);
         }
         return Pedido_Produto;
-        
+
     }
-    
-    public ArrayList<ItenPedido> RetornaPedido_Item(int Id){
+
+    public ArrayList<ItenPedido> RetornaPedido_Item(int Id) {
         String sql = "select b. * from pedido_item b JOIN pedido c ON c.pedcod = b.pedcod where c.pedcod = ?";
         this.Pedido_Iten = new ArrayList<ItenPedido>();
-        
-        try{
+
+        try {
             conn = ConectionFactory.getConnection();
             pst = conn.prepareStatement(sql);
             pst.setInt(1, Id);
-            
+
             rs = pst.executeQuery();
-            
-            while(rs.next()){
+
+            while (rs.next()) {
                 ItenPedido iten = new ItenPedido();
-                
+
                 iten.setPedido(rs.getInt(1));
                 iten.setProduto(rs.getString(2));
                 iten.setQuantidade(rs.getInt(3));
-                
+
                 this.Pedido_Iten.add(iten);
-                
-                
+
             }
-            
-        }catch(SQLException ex){
-            throw new RuntimeException("Erro ao buscar item_pedido:"+ex);
-        
+
+        } catch (SQLException ex) {
+            throw new RuntimeException("Erro ao buscar item_pedido:" + ex);
+
         }
         return this.Pedido_Iten;
-    
+
     }
 }

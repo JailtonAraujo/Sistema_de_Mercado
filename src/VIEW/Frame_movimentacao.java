@@ -393,7 +393,7 @@ public class Frame_movimentacao extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_Table_pedidosMouseClicked
 
     private void BtnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSearchActionPerformed
-        
+        this.controle.CarregarTabelaPedidos();
     }//GEN-LAST:event_BtnSearchActionPerformed
 
 
