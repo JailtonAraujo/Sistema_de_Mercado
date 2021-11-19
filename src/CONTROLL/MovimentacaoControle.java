@@ -94,6 +94,8 @@ public class MovimentacaoControle {
         this.view.getTextComentario().setText(pedido.getComentario());
     }
     
+    
+    //METEDOD QUE IRA MONTAR OS PARAMETROS DE PESQUISA RE RETORNARA NO TIPO HASH//
     public HashMap Parametros(){
         String opc = this.view.getBoxOpcPesquisa().getSelectedItem().toString();
         String obj = "";

@@ -91,7 +91,7 @@ public class PedidoDAO {
                 + "FROM\n"
                 + "cliente cliente INNER JOIN pedido pedido ON cliente.clicod = pedido.clicod\n"
                 + "INNER JOIN usuario usuario ON usuario.usucodigo = pedido.usucodigo\n"
-                + "WHERE "+pars.get("obj")+" LIKE '"+pars.get("Search")+"%' ORDER BY pedido.peddata desc";
+                + "WHERE "+pars.get("obj")+" LIKE '"+pars.get("Search")+"%' ORDER BY "+pars.get("obj")+" desc";
         this.Pedidos = new ArrayList<Pedido>();
         try {
             conn = ConectionFactory.getConnection();

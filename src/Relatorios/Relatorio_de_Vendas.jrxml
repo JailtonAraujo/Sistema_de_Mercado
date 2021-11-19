@@ -50,19 +50,12 @@ pedido.`peddata` = CURRENT_DATE]]>
 				<text><![CDATA[MERCADO G10]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="56" width="100" height="22" uuid="fbf83148-5783-4cf6-9104-d586cd861c55"/>
+				<reportElement x="0" y="56" width="45" height="22" uuid="fbf83148-5783-4cf6-9104-d586cd861c55"/>
 				<textElement verticalAlignment="Bottom">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[CNPJ:]]></text>
 			</staticText>
-			<textField pattern="dd/MM/yyyy">
-				<reportElement x="353" y="3" width="100" height="20" uuid="772a2c6a-fbfd-4883-85a9-455c4f17191d"/>
-				<textElement>
-					<font fontName="Arial" size="14" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
-			</textField>
 			<line>
 				<reportElement x="0" y="90" width="555" height="1" uuid="57d8a2f6-a66a-487f-a286-4fdc4fc6c85c"/>
 			</line>
@@ -70,6 +63,27 @@ pedido.`peddata` = CURRENT_DATE]]>
 				<reportElement x="475" y="23" width="80" height="67" uuid="1dedcbf5-6e41-4a4c-ac63-45a4b5a615eb"/>
 				<imageExpression><![CDATA["C:\\Users\\jailt\\Documents\\GitHub\\MeusProjetos\\Sistema_de_Mercado\\src\\Icons\\Logo_reporter.jpg"]]></imageExpression>
 			</image>
+			<staticText>
+				<reportElement x="45" y="56" width="148" height="22" forecolor="#FF0000" uuid="5378fc6e-a5a8-42b2-81ad-43a0ab55d0f2"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ 27.359.788/0001-83]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="313" y="56" width="50" height="22" uuid="350b8e25-3f34-4ec0-805d-5f8d009e0fcd"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DATA:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="363" y="56" width="100" height="22" uuid="a38a930d-4660-4ac7-8160-d9c16e5ba4bf"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
 		</band>
 	</title>
 	<columnHeader>

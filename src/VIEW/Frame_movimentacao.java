@@ -141,6 +141,11 @@ public class Frame_movimentacao extends javax.swing.JInternalFrame {
         jLabel11.setText("Comentario:");
 
         BoxOpcPesquisa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cliente", "Data" }));
+        BoxOpcPesquisa.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                BoxOpcPesquisaItemStateChanged(evt);
+            }
+        });
 
         jLabel10.setText("Pesquisar por:");
 
@@ -181,13 +186,11 @@ public class Frame_movimentacao extends javax.swing.JInternalFrame {
                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addComponent(jLabel7)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(Tex_valor_total, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(Tex_valor_total, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addComponent(jLabel8)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(Tex_total_itens, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                        .addComponent(Tex_total_itens, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(90, 90, 90)
                                 .addComponent(jLabel10)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -395,6 +398,10 @@ public class Frame_movimentacao extends javax.swing.JInternalFrame {
     private void BtnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSearchActionPerformed
         this.controle.CarregarTabelaPedidos();
     }//GEN-LAST:event_BtnSearchActionPerformed
+
+    private void BoxOpcPesquisaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_BoxOpcPesquisaItemStateChanged
+        this.controle.CarregarTabelaPedidos();
+    }//GEN-LAST:event_BoxOpcPesquisaItemStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
