@@ -100,20 +100,24 @@ public class MovimentacaoControle {
         String opc = this.view.getBoxOpcPesquisa().getSelectedItem().toString();
         String obj = "";
         String Search = "";
-        
+        String orde = "";
         HashMap pars = new HashMap();
         
         if("Cliente".equals(opc)){
             obj = "cliente.clinome";
+            orde = "";
             Search = this.view.getTextSearch().getText();
             pars.put("obj", obj);
             pars.put("Search", Search);
+            pars.put("ordem", orde);
         }
         else if("Data".equals(opc)){
             obj = "pedido.peddata";
+            orde = "desc";
             Search = this.view.getTextSearch().getText();
             pars.put("obj", obj);
             pars.put("Search", Search);
+            pars.put("ordem", orde);
         }
             
         return pars;
