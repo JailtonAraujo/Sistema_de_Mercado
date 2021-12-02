@@ -63,6 +63,8 @@ public class Frame_Produtos extends javax.swing.JInternalFrame {
         Tex_ProForCNPJ = new javax.swing.JFormattedTextField();
         TextSearch = new javax.swing.JTextField();
         BtnSearch2 = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        TextQuantidadd = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         Bnt_ProCadastrar = new javax.swing.JButton();
         Bnt_ProAtualizar = new javax.swing.JButton();
@@ -145,6 +147,9 @@ public class Frame_Produtos extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel10.setText("QUANTIDADE:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -157,9 +162,13 @@ public class Frame_Produtos extends javax.swing.JInternalFrame {
                         .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jLabel3)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel6))
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(TextQuantidadd, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Tex_ProDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -189,7 +198,7 @@ public class Frame_Produtos extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(BtnSearch2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(Tex_ProUnidadeMedida, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(525, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -223,7 +232,11 @@ public class Frame_Produtos extends javax.swing.JInternalFrame {
                         .addComponent(Tex_ProValorUnitario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(BtnSearch2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TextSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(TextQuantidadd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         Bnt_ProCadastrar.setForeground(new java.awt.Color(0, 0, 0));
@@ -442,8 +455,6 @@ public class Frame_Produtos extends javax.swing.JInternalFrame {
     private javax.swing.JButton Bnt_ProExcluir;
     private javax.swing.JButton Bnt_ProLimpar;
     private javax.swing.JComboBox<String> Box_ProForNome;
-    private javax.swing.JButton BtnSearch;
-    private javax.swing.JButton BtnSearch1;
     private javax.swing.JButton BtnSearch2;
     private javax.swing.JTable Tabel_Produtos;
     private javax.swing.JTextField Tex_ProCod;
@@ -453,8 +464,10 @@ public class Frame_Produtos extends javax.swing.JInternalFrame {
     private javax.swing.JTextField Tex_ProNome;
     private javax.swing.JTextField Tex_ProUnidadeMedida;
     private javax.swing.JTextField Tex_ProValorUnitario;
+    private javax.swing.JTextField TextQuantidadd;
     private javax.swing.JTextField TextSearch;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -603,6 +616,14 @@ public class Frame_Produtos extends javax.swing.JInternalFrame {
 
     public void setTextSearch(JTextField TextSearch) {
         this.TextSearch = TextSearch;
+    }
+
+    public JTextField getTextQuantidadd() {
+        return TextQuantidadd;
+    }
+
+    public void setTextQuantidadd(JTextField TextQuantidadd) {
+        this.TextQuantidadd = TextQuantidadd;
     }
 
     

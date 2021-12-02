@@ -5,6 +5,7 @@
  */
 package DAO;
 
+import MODEL.Fornecedor;
 import MODEL.Produto;
 import com.mysql.jdbc.Connection;
 import java.sql.PreparedStatement;
@@ -24,7 +25,7 @@ public class ProdutoDAO {
     ArrayList<Produto> Produtos;
 
     public boolean CadastrarProduto(Produto produto) {
-        String sql = "INSERT INTO produto (forcod, pronome, prodescricao, prounidademedida, provalorunitario, procodigo) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO produto (forcod, pronome, prodescricao, prounidademedida, provalorunitario, procodigo, proquantidade) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         try {
             conn = ConectionFactory.getConnection();
@@ -36,6 +37,7 @@ public class ProdutoDAO {
             pst.setString(4, produto.getUnidademedida());
             pst.setFloat(5, produto.getValorunitario());
             pst.setString(6, produto.getID());
+            pst.setInt(7, produto.getQuantidade());
 
             pst.execute();
             pst.close();
@@ -48,7 +50,7 @@ public class ProdutoDAO {
     }
 
     public ArrayList<Produto> ListarProdutos(String nome) {
-        String sql = "select a. *, b.fornome from produto a join fornecedor b on b.forcodigo = a.forcod WHERE pronome LIKE '"+nome+"%' ORDER BY pronome";
+        String sql = "select a. *, b.fornome, b.forcodigo from produto a join fornecedor b on b.forcodigo = a.forcod WHERE pronome LIKE '"+nome+"%' ORDER BY pronome";
         this.Produtos = new ArrayList<Produto>();
 
         try {
@@ -57,15 +59,20 @@ public class ProdutoDAO {
             rs = pst.executeQuery();
 
             while (rs.next()) {
+                
+                Fornecedor forncedor = new Fornecedor();
+                
                 Produto produto = new Produto();
                 produto.setID(rs.getString(1));
-                produto.setFornecedor(rs.getInt(2));
+                forncedor.setID(rs.getInt(2));
                 produto.setNome(rs.getString(3));
                 produto.setDescricao(rs.getString(4));
                 produto.setUnidademedida(rs.getString(5));
                 produto.setValorunitario(rs.getFloat(6));
-                produto.setNomeFornecedor(rs.getString(7));
-
+                produto.setQuantidade(rs.getInt(7));
+                forncedor.setNome(rs.getString(8));
+                
+                produto.setFornecedor(forncedor);
                 this.Produtos.add(produto);
             }
         } catch (SQLException ex) {
@@ -75,7 +82,7 @@ public class ProdutoDAO {
     }
     
     public boolean AtualizarProduto(Produto produto){
-        String sql = "UPDATE produto SET forcod=?, pronome=?, prodescricao=?, prounidademedida=?, provalorunitario=? WHERE procodigo = ?";
+        String sql = "UPDATE produto SET forcod=?, pronome=?, prodescricao=?, prounidademedida=?, provalorunitario=?, proquantidade=? WHERE procodigo = ?";
         
         try{
            conn = ConectionFactory.getConnection();
@@ -86,7 +93,8 @@ public class ProdutoDAO {
            pst.setString(3, produto.getDescricao());
            pst.setString(4, produto.getUnidademedida());
            pst.setFloat(5, produto.getValorunitario());
-           pst.setString(6, produto.getID());
+           pst.setString(7, produto.getID());
+           pst.setInt(6, produto.getQuantidade());
            
            pst.execute();
            pst.close();

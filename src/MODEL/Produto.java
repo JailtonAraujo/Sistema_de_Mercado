@@ -16,6 +16,7 @@ public class Produto {
     private String unidademedida;
     private float valorunitario;
     private Fornecedor fornecedor;
+    private int quantidade;
 
     public Produto() {
     }
@@ -29,20 +30,22 @@ public class Produto {
     }
       
     
-    public Produto(String ID, String nome, String descricao, String unidademedida, float valorunitario) {
+    public Produto(String ID, String nome, String descricao, String unidademedida, float valorunitario, int quantidade) {
         this.ID = ID;
         this.nome = nome;
         this.descricao = descricao;
         this.unidademedida = unidademedida;
         this.valorunitario = valorunitario;
+        this.quantidade = quantidade;
     }
 
-    public Produto(String ID, String nome, String descricao, String unidademedida, float valorunitario, Fornecedor fornecedor) {
+    public Produto(String ID, String nome, String descricao, String unidademedida, float valorunitario,int quantidade, Fornecedor fornecedor) {
         this.ID = ID;
         this.nome = nome;
         this.descricao = descricao;
         this.unidademedida = unidademedida;
         this.valorunitario = valorunitario;
+        this.quantidade = quantidade;
         this.fornecedor = fornecedor;
     }
 
@@ -90,12 +93,18 @@ public class Produto {
         return fornecedor;
     }
 
-    public void setFornecedor(int forcod ) {
-        this.fornecedor = new Fornecedor(forcod);
+    public void setFornecedor(Fornecedor fornecedor) {
+        this.fornecedor = fornecedor;
     }
-    
-    public void setNomeFornecedor(String Nome){
-        this.fornecedor = new Fornecedor(Nome);
+
+   
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
     }
     
     

@@ -69,7 +69,7 @@ public class ProdutoControle {
         Produto produto = this.ObterModeloProduto("Atualizar");
         this.MostrarDados(produto);
         if (this.produtodao.AtualizarProduto(produto)) {
-            JOptionPane.showMessageDialog(null, "PRODUTO CADASTRADO COM SUCESSO!");
+            JOptionPane.showMessageDialog(null, "PRODUTO ATUALIZADO COM SUCESSO!");
             this.Limpar();
             this.CarregarTabelaProdutos();
         } else {
@@ -85,6 +85,7 @@ public class ProdutoControle {
         String descricao = this.view.getTex_ProDescricao().getText();
         String uni = this.view.getTex_ProUnidadeMedida().getText();
         String valorUni = this.view.getTex_ProValorUnitario().getText();
+        String quantidade = this.view.getTextQuantidadd().getText();
 
         if ("cadastrar".equals(comando)) {
 
@@ -92,7 +93,7 @@ public class ProdutoControle {
         if (nome != null && nome.length() > 0 && valorUni != null && valorUni.length() > 0) {
             Fornecedor fornecedor = new Fornecedor();
             fornecedor.setID(Integer.parseInt(codigoForncedor));
-            Produto modelo = new Produto(codigo, nome, descricao, uni, Float.parseFloat(valorUni), fornecedor);
+            Produto modelo = new Produto(codigo, nome, descricao, uni, Float.parseFloat(valorUni),Integer.parseInt(quantidade), fornecedor);
             return modelo;
         }
         JOptionPane.showMessageDialog(null, "INFORMAÇÕES INVALIDAS, VERIFIQUE OS DADOS DIGITADOS E TENTE NOVAMENTE!");
@@ -159,6 +160,7 @@ public class ProdutoControle {
         this.view.getTex_ProNome().setText("");
         this.view.getTex_ProUnidadeMedida().setText("");
         this.view.getTex_ProValorUnitario().setText("");
+        this.view.getTextQuantidadd().setText("");
         this.view.getBtn_cadastrar().setEnabled(true);
         this.view.getBtn_Limpar().setEnabled(true);
         this.view.getBtn_editar().setEnabled(true);
@@ -174,6 +176,7 @@ public class ProdutoControle {
         this.view.getTex_ProValorUnitario().setText(Float.toString(produto.getValorunitario()));
         this.view.getTex_ProForCod().setText(Integer.toString(produto.getFornecedor().getID()));
         this.view.getTex_ProUnidadeMedida().setText(produto.getUnidademedida());
+        this.view.getTextQuantidadd().setText(String.valueOf(produto.getQuantidade()));
 
         this.view.getBtn_cadastrar().setEnabled(false);
         this.view.getBtn_editar().setEnabled(false);

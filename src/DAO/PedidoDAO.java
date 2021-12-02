@@ -5,6 +5,7 @@
  */
 package DAO;
 
+import MODEL.Fornecedor;
 import MODEL.ItenPedido;
 import MODEL.Pedido;
 import MODEL.Produto;
@@ -137,7 +138,7 @@ public class PedidoDAO {
                 Produto produto = new Produto();
 
                 produto.setID(rs.getString(1));
-                produto.setFornecedor(rs.getInt(2));
+                produto.setFornecedor(new Fornecedor(rs.getInt(2)));
                 produto.setNome(rs.getString(3));
                 produto.setDescricao(rs.getString(4));
                 produto.setUnidademedida(rs.getString(5));

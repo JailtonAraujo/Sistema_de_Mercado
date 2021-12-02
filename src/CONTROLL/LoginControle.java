@@ -60,6 +60,8 @@ public class LoginControle {
 
     //#METODO QEU CARREGA A IMAGEM DE CONCETIVIDADE COM BANCO DE DADOS NA TELA DE LOGIN BASEADO NO STATUS DA CONEXÃO#//
     public void CarregarImg() {
+        
+        
         ConectionFactory conn = new ConectionFactory();
         if (conn.getConnection() != null) {
             ImageIcon icon = new ImageIcon(getClass().getResource("/Icons/IconBDconectado.png"));
