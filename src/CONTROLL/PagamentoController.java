@@ -16,6 +16,7 @@ import javax.swing.table.DefaultTableModel;
 import DAO.PagamentoDAO;
 import MODEL.Pagamento;
 import MODEL.Usuario;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Vector;
@@ -66,7 +67,7 @@ public class PagamentoController {
     }
 
     //METODO QUE PEGA O CLIENTE SELECIONADO NA TBL E PASSA O CLIENTE SELECIONADO PARA O METODO QUE IRÁ SETAR AS INFORMAÇÕES NOS CAMPOS//
-    public void SelecionarCliente() {
+    public void SelecionarCliente() throws ParseException {
         int index = this.view.getTable_Clientes().getSelectedRow();
         this.SetarTotal(this.ListaClientes.get(index));
         this.CarregarTBLPagamentos();
@@ -113,7 +114,7 @@ public class PagamentoController {
     }
     
     //CARREGANDO TABELA COM OS PAGAMENTOS DOS CLIENTES//
-    public void CarregarTBLPagamentos(){
+    public void CarregarTBLPagamentos() throws ParseException{
         int index = this.view.getTable_Clientes().getSelectedRow();
         this.ListaDePagamentos = new ArrayList<Pagamento>();
         this.ListaDePagamentos = this.pagamentoDAO.ListarPagamentos(this.ListaClientes.get(index).getID());
@@ -125,7 +126,7 @@ public class PagamentoController {
             Object linha = new Object[]{
                 pagamento.getCliente().getNome(),
                 pagamento.getUsuario().getNome(),
-                pagamento.getDataPagemento(),
+                this.ConverterData(pagamento.getDataPagemento()),
                 "R$"+pagamento.getValorPagamento()
             };
             modelo.addRow((Object[]) linha);
@@ -145,5 +146,14 @@ public class PagamentoController {
         String dt = sdf.format(hoje);
 
         return dt;
+    }
+    
+    
+    public String ConverterData (String data) throws ParseException{
+        SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
+       
+       SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+       
+        return format.format(format1.parse(data));
     }
 }

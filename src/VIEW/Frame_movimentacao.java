@@ -7,6 +7,9 @@ package VIEW;
 
 import CONTROLL.MovimentacaoControle;
 import java.beans.PropertyVetoException;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
@@ -24,7 +27,7 @@ public class Frame_movimentacao extends javax.swing.JInternalFrame {
      */
     private final MovimentacaoControle controle;
 
-    public Frame_movimentacao() throws PropertyVetoException {
+    public Frame_movimentacao() throws PropertyVetoException, ParseException {
         initComponents();
         this.setMaximum(true);
         this.controle = new MovimentacaoControle(this);
@@ -390,16 +393,28 @@ public class Frame_movimentacao extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Table_pedidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Table_pedidosMouseClicked
-        this.controle.CarregarTabelaItemPedido();
+        try {
+            this.controle.CarregarTabelaItemPedido();
+        } catch (ParseException ex) {
+            Logger.getLogger(Frame_movimentacao.class.getName()).log(Level.SEVERE, null, ex);
+        }
        
     }//GEN-LAST:event_Table_pedidosMouseClicked
 
     private void BoxOpcPesquisaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_BoxOpcPesquisaItemStateChanged
-        this.controle.CarregarTabelaPedidos();
+        try {
+            this.controle.CarregarTabelaPedidos();
+        } catch (ParseException ex) {
+            Logger.getLogger(Frame_movimentacao.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_BoxOpcPesquisaItemStateChanged
 
     private void TextSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextSearchKeyReleased
-        this.controle.CarregarTabelaPedidos();
+        try {
+            this.controle.CarregarTabelaPedidos();
+        } catch (ParseException ex) {
+            Logger.getLogger(Frame_movimentacao.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_TextSearchKeyReleased
 
 

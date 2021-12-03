@@ -10,11 +10,13 @@ import MODEL.ItenPedido;
 import MODEL.Pedido;
 import MODEL.Produto;
 import VIEW.Frame_movimentacao;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
+import org.apache.poi.ss.usermodel.ExcelStyleDateFormatter;
 
 /**
  *
@@ -36,7 +38,7 @@ public class MovimentacaoControle {
     }
 
     //#CARREGANDO TABELA DE DE PEDIDOS COM TODOS OS REGISTROS DO BD#//
-    public void CarregarTabelaPedidos() {
+    public void CarregarTabelaPedidos() throws ParseException {
         
         this.ListaDePedidos = new ArrayList<Pedido>();
         this.ListaDePedidos = this.pedDAO.Listar(this.Parametros());
@@ -47,7 +49,7 @@ public class MovimentacaoControle {
             Object linha[] = new Object[]{
                 pedido.getCliente().getNome(),
                 pedido.getUsuario().getNome(),
-                pedido.getData(),
+                this.ConverterData(pedido.getData()),
                 "R$" + pedido.getValor_total(),
                 pedido.getFormaDePagamento()
             };
@@ -59,7 +61,7 @@ public class MovimentacaoControle {
     }
 
     //#METODO QUE CARREGA A TABELA DE PEDIDO_ITEM#//
-    public void CarregarTabelaItemPedido() {
+    public void CarregarTabelaItemPedido() throws ParseException {
         int Total_itens = 0;
         int index = this.view.getTable_pedidos().getSelectedRow();
         
@@ -86,11 +88,11 @@ public class MovimentacaoControle {
     }
 
     //#SETANDO O PEDIDO SELECIONANDO NOS CAMPOS#//
-    public void SetarCampos(Pedido pedido, int quant) {
+    public void SetarCampos(Pedido pedido, int quant) throws ParseException {
         this.view.getTex_pedcod().setText(String.valueOf(pedido.getCodigo()));
         this.view.getTex_clicod().setText(pedido.getCliente().getNome());
         this.view.getTex_vendcod().setText(pedido.getUsuario().getNome());
-        this.view.getTex_data().setText(pedido.getData());
+        this.view.getTex_data().setText(this.ConverterData(pedido.getData()));
         this.view.getTex_valor_total().setText(String.valueOf(pedido.getValor_total()));
         this.view.getTex_total_itens().setText(String.valueOf(quant));
         this.view.getTextFormaPagaemento().setText(pedido.getFormaDePagamento());
@@ -99,7 +101,7 @@ public class MovimentacaoControle {
     
     
     //METEDOD QUE IRA MONTAR OS PARAMETROS DE PESQUISA RE RETORNARA NO TIPO HASH//
-    public HashMap Parametros(){
+    public HashMap Parametros() throws ParseException{
         String opc = this.view.getBoxOpcPesquisa().getSelectedItem().toString();
         String obj = "";
         String Search = "";
@@ -115,9 +117,24 @@ public class MovimentacaoControle {
             pars.put("ordem", orde);
         }
         else if("Data".equals(opc)){
+             String data = this.view.getTextSearch().getText();
+            
+            if(data.equals("") || data.length() <= 0){
+                Search = "";
+            }
+            else{
+             SimpleDateFormat format1 = new SimpleDateFormat("dd/MM/yyyy");
+             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+                
+             Search = format.format(format1.parse(data));
+            }
+            
+            
+            
+            
             obj = "pedido.peddata";
             orde = "desc";
-            Search = this.view.getTextSearch().getText();
+            
             pars.put("obj", obj);
             pars.put("Search", Search);
             pars.put("ordem", orde);
@@ -129,4 +146,15 @@ public class MovimentacaoControle {
     public void SetarIcone() {
         this.view.setFrameIcon(new ImageIcon(getClass().getResource("/Icons/Icon_Frame_Main.png")));
     }
+    
+    
+    public String ConverterData (String data) throws ParseException{
+        SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
+       
+       SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+       
+        return format.format(format1.parse(data));
+    }
+    
+    
 }

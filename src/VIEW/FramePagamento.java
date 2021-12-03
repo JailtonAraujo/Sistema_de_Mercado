@@ -7,6 +7,9 @@ package VIEW;
 
 import CONTROLL.PagamentoController;
 import java.beans.PropertyVetoException;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -168,7 +171,11 @@ public class FramePagamento extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Table_ClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Table_ClientesMouseClicked
-        this.controle.SelecionarCliente();
+        try {
+            this.controle.SelecionarCliente();
+        } catch (ParseException ex) {
+            Logger.getLogger(FramePagamento.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }//GEN-LAST:event_Table_ClientesMouseClicked
 
