@@ -81,7 +81,6 @@ public class FramePrincipal extends javax.swing.JFrame {
         MenuPagar = new javax.swing.JMenuItem();
         Menu_Fornecedores = new javax.swing.JMenu();
         GerenciarForncedores = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
         Menu_Vendas = new javax.swing.JMenu();
         LancamentoVendas = new javax.swing.JMenuItem();
         Menu_Produtos = new javax.swing.JMenu();
@@ -387,9 +386,6 @@ public class FramePrincipal extends javax.swing.JFrame {
             }
         });
         Menu_Fornecedores.add(GerenciarForncedores);
-
-        jMenuItem4.setText("RECEBER MERCADORIA");
-        Menu_Fornecedores.add(jMenuItem4);
 
         jMenuBar1.add(Menu_Fornecedores);
 
@@ -737,7 +733,6 @@ public class FramePrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
