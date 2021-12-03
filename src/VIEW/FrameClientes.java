@@ -75,7 +75,7 @@ public class FrameClientes extends javax.swing.JInternalFrame {
         Tex_CliComplemento = new javax.swing.JTextField();
         Tex_CliCep = new javax.swing.JFormattedTextField();
         TextSearch = new javax.swing.JTextField();
-        BtnSearch = new javax.swing.JButton();
+        jLabel15 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Table_Clientes = new javax.swing.JTable();
         Bnt_CliEditar = new javax.swing.JButton();
@@ -298,19 +298,13 @@ public class FrameClientes extends javax.swing.JInternalFrame {
             ex.printStackTrace();
         }
 
-        BtnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/search.png"))); // NOI18N
-        BtnSearch.setToolTipText("");
-        BtnSearch.setAutoscrolls(true);
-        BtnSearch.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        BtnSearch.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        BtnSearch.setMargin(new java.awt.Insets(4, 14, 4, 14));
-        BtnSearch.setMaximumSize(new java.awt.Dimension(54, 50));
-        BtnSearch.setMinimumSize(new java.awt.Dimension(54, 50));
-        BtnSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnSearchActionPerformed(evt);
+        TextSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TextSearchKeyReleased(evt);
             }
         });
+
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/search.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -341,7 +335,7 @@ public class FrameClientes extends javax.swing.JInternalFrame {
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(TextSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(BtnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jLabel12)
                     .addComponent(jLabel13)
                     .addComponent(jLabel7))
@@ -378,10 +372,10 @@ public class FrameClientes extends javax.swing.JInternalFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
                     .addComponent(Tex_CliEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(BtnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TextSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TextSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22))
         );
 
@@ -611,9 +605,9 @@ public class FrameClientes extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TextDebitoActionPerformed
 
-    private void BtnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSearchActionPerformed
+    private void TextSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextSearchKeyReleased
         this.controle.CarregarTabelaClientes();
-    }//GEN-LAST:event_BtnSearchActionPerformed
+    }//GEN-LAST:event_TextSearchKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -623,7 +617,6 @@ public class FrameClientes extends javax.swing.JInternalFrame {
     private javax.swing.JButton Bnt_CliEditar;
     private javax.swing.JButton Bnt_CliExcluir;
     private javax.swing.JButton Bnt_CliLimpar;
-    private javax.swing.JButton BtnSearch;
     private javax.swing.JTable Table_Clientes;
     private javax.swing.JTextField Tex_CliBairro;
     private javax.swing.JFormattedTextField Tex_CliCep;
@@ -645,6 +638,7 @@ public class FrameClientes extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -820,13 +814,6 @@ public class FrameClientes extends javax.swing.JInternalFrame {
         this.TextDebito = TextDebito;
     }
 
-    public JButton getBtnSearch() {
-        return BtnSearch;
-    }
-
-    public void setBtnSearch(JButton BtnSearch) {
-        this.BtnSearch = BtnSearch;
-    }
 
     public JTextField getTextSearch() {
         return TextSearch;

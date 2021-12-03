@@ -524,6 +524,9 @@ public class FramePrincipal extends javax.swing.JFrame {
 
     private void Btn_sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_sairActionPerformed
         dispose();
+        
+        FrameLogin loginView = new FrameLogin();
+        loginView.setVisible(true);
     }//GEN-LAST:event_Btn_sairActionPerformed
 
     private void Bnt_FornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bnt_FornecedorActionPerformed

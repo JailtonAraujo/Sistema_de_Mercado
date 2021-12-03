@@ -235,6 +235,7 @@ public class FrameLogin extends javax.swing.JFrame {
                 FramePrincipal tela = new FramePrincipal();
                 this.controle.restricao(tela);
                 tela.setVisible(true);
+                dispose();
                 tela.getLbl_Usuario().setText(Tex_UsuLogin.getText().toUpperCase());
                 tela.getLbl_divisao().setText(Box_UsuDivisao.getSelectedItem().toString().toUpperCase());
             } else {

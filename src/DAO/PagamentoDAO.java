@@ -55,8 +55,8 @@ public class PagamentoDAO {
                 + "pagamentos.valorpagamento\n"
                 + "FROM\n"
                 + "cliente cliente INNER JOIN pagamentos pagamentos ON cliente.clicod = pagamentos.clicod\n"
-                + "INNER JOIN usuario usuario ON usuario.usucodigo = pagamentos.usucod\n"
-                + "WHERE pagamentos.clicod = ?";
+                + "INNER JOIN usuario usuario ON usuario.usucodigo = pagamentos.usucod \n"
+                + "WHERE pagamentos.clicod = ? order by pagamentos.datapagamento desc";
         this.ListaDePagamentos = new ArrayList<Pagamento>();
 
         try {

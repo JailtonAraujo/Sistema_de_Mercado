@@ -47,8 +47,7 @@ public class FramePagamento extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         BtnAbater = new javax.swing.JButton();
         TextPesquisar = new javax.swing.JTextField();
-        BtnPesquisar = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Table_Clientes = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -85,19 +84,15 @@ public class FramePagamento extends javax.swing.JInternalFrame {
         jPanel1.add(BtnAbater, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 257, -1));
 
         TextPesquisar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jPanel1.add(TextPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, 259, 24));
-
-        BtnPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/search.png"))); // NOI18N
-        BtnPesquisar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        BtnPesquisar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnPesquisarActionPerformed(evt);
+        TextPesquisar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TextPesquisarKeyReleased(evt);
             }
         });
-        jPanel1.add(BtnPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 140, 45, 24));
+        jPanel1.add(TextPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, 259, 24));
 
-        jLabel4.setText("PESQUISAR CLIENTE:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 120, -1, -1));
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/search.png"))); // NOI18N
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 140, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 26, 750, 200));
 
@@ -172,10 +167,6 @@ public class FramePagamento extends javax.swing.JInternalFrame {
         setBounds(0, 0, 1571, 761);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPesquisarActionPerformed
-        this.controle.CarregarTBLClientes();
-    }//GEN-LAST:event_BtnPesquisarActionPerformed
-
     private void Table_ClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Table_ClientesMouseClicked
         this.controle.SelecionarCliente();
 
@@ -185,18 +176,21 @@ public class FramePagamento extends javax.swing.JInternalFrame {
         this.controle.EfetuarPagamento();
     }//GEN-LAST:event_BtnAbaterActionPerformed
 
+    private void TextPesquisarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextPesquisarKeyReleased
+        this.controle.CarregarTBLClientes();
+    }//GEN-LAST:event_TextPesquisarKeyReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAbater;
-    private javax.swing.JButton BtnPesquisar;
     private javax.swing.JTable TablePagamentos;
     private javax.swing.JTable Table_Clientes;
     private javax.swing.JTextField TextPesquisar;
     private javax.swing.JTextField TextTotal;
     private javax.swing.JTextField TextValorAbater;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -208,14 +202,6 @@ public class FramePagamento extends javax.swing.JInternalFrame {
 
     public void setBtnAbater(JButton BtnAbater) {
         this.BtnAbater = BtnAbater;
-    }
-
-    public JButton getBtnPesquisar() {
-        return BtnPesquisar;
-    }
-
-    public void setBtnPesquisar(JButton BtnPesquisar) {
-        this.BtnPesquisar = BtnPesquisar;
     }
 
     public JTable getTable_Clientes() {

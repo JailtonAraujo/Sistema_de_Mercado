@@ -11,6 +11,8 @@ import MODEL.Usuario;
 import VIEW.FrameLogin;
 import VIEW.FramePrincipal;
 import java.awt.Toolkit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 
 /**
@@ -60,21 +62,45 @@ public class LoginControle {
 
     //#METODO QEU CARREGA A IMAGEM DE CONCETIVIDADE COM BANCO DE DADOS NA TELA DE LOGIN BASEADO NO STATUS DA CONEXÃO#//
     public void CarregarImg() {
-        
-        
-        ConectionFactory conn = new ConectionFactory();
+
+        new Thread() {
+            public void run() {
+                while (true) {
+                
+
+                    ConectionFactory conn = new ConectionFactory();
+                    if (conn.getConnection() != null) {
+                        ImageIcon icon = new ImageIcon(getClass().getResource("/Icons/IconBDconectado.png"));
+                        view.getLbl_Icone().setIcon(icon);
+                    } else {
+                        ImageIcon icon = new ImageIcon(getClass().getResource("/Icons/IconBDerror.png"));
+                        view.getLbl_Icone().setIcon(icon);
+                    }
+                    
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(LoginControle.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+                }
+            }
+
+        }.start();
+
+        /*ConectionFactory conn = new ConectionFactory();
         if (conn.getConnection() != null) {
             ImageIcon icon = new ImageIcon(getClass().getResource("/Icons/IconBDconectado.png"));
             this.view.getLbl_Icone().setIcon(icon);
         } else {
             ImageIcon icon = new ImageIcon(getClass().getResource("/Icons/IconBDerror.png"));
             this.view.getLbl_Icone().setIcon(icon);
-        }
+        }*/
     }
 
     //METODO QUE SERA CHAMADO NO ATO DO LOGIN E FARÁ A VERIFICAÇÃO E APLICARÁ AS RESTRÇÕES DE ACESSO AO USUARIOS DO DIFERENRES SETORES//
-    public void restricao(FramePrincipal frame){
-        if ("CAIXA".equals(this.view.getBox_UsuDivisao().getSelectedItem())){
+    public void restricao(FramePrincipal frame) {
+        if ("CAIXA".equals(this.view.getBox_UsuDivisao().getSelectedItem())) {
             frame.getBtn_mov().setEnabled(false);
             frame.getBtn_produtos().setEnabled(false);
             frame.getBnt_Fornecedor().setEnabled(false);
@@ -85,10 +111,10 @@ public class LoginControle {
             frame.getMenu_Produtos().setEnabled(false);
             frame.getMenu_Financas().setEnabled(false);
         }
-        
+
     }
-    
-    public void SetarIcone(){
+
+    public void SetarIcone() {
         this.view.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Icons/Icon_Frame_Main.png")));
     }
 }

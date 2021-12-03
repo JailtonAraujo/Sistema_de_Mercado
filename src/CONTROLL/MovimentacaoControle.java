@@ -10,6 +10,7 @@ import MODEL.ItenPedido;
 import MODEL.Pedido;
 import MODEL.Produto;
 import VIEW.Frame_movimentacao;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.ImageIcon;
@@ -26,6 +27,8 @@ public class MovimentacaoControle {
     private ArrayList<Produto> Pedido_produto = null;
     private ArrayList<ItenPedido> Pedido_Iten = null;
     private PedidoDAO pedDAO;
+    
+    SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 
     public MovimentacaoControle(Frame_movimentacao view) {
         this.view = view;
@@ -59,7 +62,7 @@ public class MovimentacaoControle {
     public void CarregarTabelaItemPedido() {
         int Total_itens = 0;
         int index = this.view.getTable_pedidos().getSelectedRow();
-
+        
         this.Pedido_produto = this.pedDAO.RetornaPedidoPorduto(this.ListaDePedidos.get(index).getCodigo());
         this.Pedido_Iten = this.pedDAO.RetornaPedido_Item(this.ListaDePedidos.get(index).getCodigo());
 

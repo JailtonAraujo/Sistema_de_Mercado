@@ -26,6 +26,7 @@ public class Frame_movimentacao extends javax.swing.JInternalFrame {
 
     public Frame_movimentacao() throws PropertyVetoException {
         initComponents();
+        this.setMaximum(true);
         this.controle = new MovimentacaoControle(this);
         this.controle.CarregarTabelaPedidos();
         this.controle.SetarIcone();
@@ -60,12 +61,12 @@ public class Frame_movimentacao extends javax.swing.JInternalFrame {
         jLabel9 = new javax.swing.JLabel();
         TextFormaPagaemento = new javax.swing.JTextField();
         TextSearch = new javax.swing.JTextField();
-        BtnSearch = new javax.swing.JButton();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        TextComentario = new javax.swing.JTextArea();
         jLabel11 = new javax.swing.JLabel();
         BoxOpcPesquisa = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        TextComentario = new javax.swing.JTextArea();
         jScrollPane1 = new javax.swing.JScrollPane();
         Table_itens_pedido = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -120,24 +121,11 @@ public class Frame_movimentacao extends javax.swing.JInternalFrame {
 
         TextFormaPagaemento.setEditable(false);
 
-        BtnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/search.png"))); // NOI18N
-        BtnSearch.setToolTipText("");
-        BtnSearch.setAutoscrolls(true);
-        BtnSearch.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        BtnSearch.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        BtnSearch.setMargin(new java.awt.Insets(4, 14, 4, 14));
-        BtnSearch.setMaximumSize(new java.awt.Dimension(54, 50));
-        BtnSearch.setMinimumSize(new java.awt.Dimension(54, 50));
-        BtnSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnSearchActionPerformed(evt);
+        TextSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TextSearchKeyReleased(evt);
             }
         });
-
-        TextComentario.setEditable(false);
-        TextComentario.setColumns(20);
-        TextComentario.setRows(5);
-        jScrollPane3.setViewportView(TextComentario);
 
         jLabel11.setText("Comentario:");
 
@@ -150,6 +138,13 @@ public class Frame_movimentacao extends javax.swing.JInternalFrame {
 
         jLabel10.setText("Pesquisar por:");
 
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/search.png"))); // NOI18N
+
+        TextComentario.setEditable(false);
+        TextComentario.setColumns(20);
+        TextComentario.setRows(5);
+        jScrollPane3.setViewportView(TextComentario);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -158,7 +153,7 @@ public class Frame_movimentacao extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -178,10 +173,10 @@ public class Frame_movimentacao extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(TextFormaPagaemento, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(TextSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BtnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(88, 88, 88))
+                                .addComponent(TextSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel15)
+                        .addGap(108, 108, 108))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
@@ -200,15 +195,14 @@ public class Frame_movimentacao extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(Tex_data, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(48, 48, 48))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel11)
-                                .addGap(212, 212, 212))))))
+                                .addGap(203, 203, 203))))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -230,15 +224,15 @@ public class Frame_movimentacao extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
-                            .addComponent(Tex_data, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(Tex_data, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(17, 17, 17)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(Tex_valor_total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel11)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(Tex_valor_total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -255,8 +249,8 @@ public class Frame_movimentacao extends javax.swing.JInternalFrame {
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel9)
                         .addComponent(TextFormaPagaemento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(BtnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TextSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TextSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
@@ -400,18 +394,17 @@ public class Frame_movimentacao extends javax.swing.JInternalFrame {
        
     }//GEN-LAST:event_Table_pedidosMouseClicked
 
-    private void BtnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSearchActionPerformed
-        this.controle.CarregarTabelaPedidos();
-    }//GEN-LAST:event_BtnSearchActionPerformed
-
     private void BoxOpcPesquisaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_BoxOpcPesquisaItemStateChanged
         this.controle.CarregarTabelaPedidos();
     }//GEN-LAST:event_BoxOpcPesquisaItemStateChanged
 
+    private void TextSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextSearchKeyReleased
+        this.controle.CarregarTabelaPedidos();
+    }//GEN-LAST:event_TextSearchKeyReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> BoxOpcPesquisa;
-    private javax.swing.JButton BtnSearch;
     private javax.swing.JTable Table_itens_pedido;
     private javax.swing.JTable Table_pedidos;
     private javax.swing.JTextField Tex_clicod;
@@ -426,6 +419,7 @@ public class Frame_movimentacao extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -521,14 +515,6 @@ public class Frame_movimentacao extends javax.swing.JInternalFrame {
 
     public void setBoxOpcPesquisa(JComboBox<String> BoxOpcPesquisa) {
         this.BoxOpcPesquisa = BoxOpcPesquisa;
-    }
-
-    public JButton getBtnSearch() {
-        return BtnSearch;
-    }
-
-    public void setBtnSearch(JButton BtnSearch) {
-        this.BtnSearch = BtnSearch;
     }
 
     public JTextArea getTextComentario() {

@@ -27,6 +27,7 @@ public class FrameCadastroUsuario extends javax.swing.JFrame {
     public FrameCadastroUsuario() {
         initComponents();
         setLocationRelativeTo(null);
+        setResizable(false);
         this.controle = new UsuarioControle(this);
         this.controle.CarreTabelaDeUsuarios();
         this.controle.SetarIcone();

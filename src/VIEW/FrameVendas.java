@@ -27,6 +27,7 @@ public class FrameVendas extends javax.swing.JInternalFrame {
 
     public FrameVendas() throws PropertyVetoException {
         initComponents();
+        this.setMaximum(true);
         this.controle = new VendaControle(this);
         this.controle.CarregarTabelaDeProdutos();
         this.controle.PreencherBoxCliente();
@@ -56,12 +57,12 @@ public class FrameVendas extends javax.swing.JInternalFrame {
         Tex_vencod = new javax.swing.JTextField();
         Tex_venquant = new javax.swing.JTextField();
         TextSearch = new javax.swing.JTextField();
-        BtnSearch = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         TextComentario = new javax.swing.JTextArea();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         TextEstoque = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Table_Produtos = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
@@ -91,6 +92,7 @@ public class FrameVendas extends javax.swing.JInternalFrame {
         jLabel1.setText("LANÇAMENTO DE VENDAS");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 153, 255)), "Produto selecionado ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(0, 0, 0))); // NOI18N
+        jPanel1.setAutoscrolls(true);
 
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("CODIGO:");
@@ -124,17 +126,9 @@ public class FrameVendas extends javax.swing.JInternalFrame {
 
         Tex_venquant.setText("1");
 
-        BtnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/search.png"))); // NOI18N
-        BtnSearch.setToolTipText("");
-        BtnSearch.setAutoscrolls(true);
-        BtnSearch.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        BtnSearch.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        BtnSearch.setMargin(new java.awt.Insets(4, 14, 4, 14));
-        BtnSearch.setMaximumSize(new java.awt.Dimension(54, 50));
-        BtnSearch.setMinimumSize(new java.awt.Dimension(54, 50));
-        BtnSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnSearchActionPerformed(evt);
+        TextSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TextSearchKeyReleased(evt);
             }
         });
 
@@ -149,6 +143,8 @@ public class FrameVendas extends javax.swing.JInternalFrame {
 
         TextEstoque.setEditable(false);
 
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/search.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -161,8 +157,8 @@ public class FrameVendas extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
                         .addComponent(TextSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BtnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(53, 53, 53))
+                        .addComponent(jLabel15)
+                        .addGap(79, 79, 79))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -224,13 +220,13 @@ public class FrameVendas extends javax.swing.JInternalFrame {
                             .addComponent(jLabel9))
                         .addGap(25, 25, 25)
                         .addComponent(Bnt_adicionarcomp, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(BtnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(TextSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(TextSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jScrollPane1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 153, 255)), "Lista de Produtos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(0, 0, 0))); // NOI18N
+        jScrollPane1.setAutoscrolls(true);
 
         Table_Produtos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -281,6 +277,7 @@ public class FrameVendas extends javax.swing.JInternalFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 153, 255)), "Intes do pedido", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(0, 0, 0))); // NOI18N
         jPanel2.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel2.setAutoscrolls(true);
 
         Table_itenspedido.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -455,13 +452,9 @@ public class FrameVendas extends javax.swing.JInternalFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 29, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 614, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 585, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 47, Short.MAX_VALUE)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(14, 14, 14))))
         );
@@ -525,9 +518,9 @@ public class FrameVendas extends javax.swing.JInternalFrame {
         this.controle.Descontar();
     }//GEN-LAST:event_BtnDescontarActionPerformed
 
-    private void BtnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSearchActionPerformed
-    this.controle.CarregarTabelaDeProdutos();
-    }//GEN-LAST:event_BtnSearchActionPerformed
+    private void TextSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextSearchKeyReleased
+        this.controle.CarregarTabelaDeProdutos();
+    }//GEN-LAST:event_TextSearchKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -535,7 +528,6 @@ public class FrameVendas extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> BoxFormaPagamento;
     private javax.swing.JComboBox<String> Box_cliente;
     private javax.swing.JButton BtnDescontar;
-    private javax.swing.JButton BtnSearch;
     private javax.swing.JButton Btn_excluiriten;
     private javax.swing.JButton Btn_fecharpe;
     private javax.swing.JTable Table_Produtos;
@@ -555,6 +547,7 @@ public class FrameVendas extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -696,14 +689,6 @@ public class FrameVendas extends javax.swing.JInternalFrame {
 
     public void setTextDesconto(JTextField TextDesconto) {
         this.TextDesconto = TextDesconto;
-    }
-
-    public JButton getBtnSearch() {
-        return BtnSearch;
-    }
-
-    public void setBtnSearch(JButton BtnSearch) {
-        this.BtnSearch = BtnSearch;
     }
 
     public JTextField getTextSearch() {

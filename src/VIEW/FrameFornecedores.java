@@ -27,6 +27,7 @@ public class FrameFornecedores extends javax.swing.JInternalFrame {
 
     public FrameFornecedores() throws PropertyVetoException {
         initComponents();
+        this.setMaximum(true);
         this.controle = new FornecedorControle(this);
         this.controle.CarregarTabelaFornecedor();
         this.controle.SetarIcone();
@@ -59,7 +60,7 @@ public class FrameFornecedores extends javax.swing.JInternalFrame {
         jLabel8 = new javax.swing.JLabel();
         Tex_ForFax = new javax.swing.JTextField();
         TextSearch = new javax.swing.JTextField();
-        BtnSearch = new javax.swing.JButton();
+        jLabel15 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Table_Fornecedores = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
@@ -129,19 +130,13 @@ public class FrameFornecedores extends javax.swing.JInternalFrame {
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("FAX:");
 
-        BtnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/search.png"))); // NOI18N
-        BtnSearch.setToolTipText("");
-        BtnSearch.setAutoscrolls(true);
-        BtnSearch.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        BtnSearch.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        BtnSearch.setMargin(new java.awt.Insets(4, 14, 4, 14));
-        BtnSearch.setMaximumSize(new java.awt.Dimension(54, 50));
-        BtnSearch.setMinimumSize(new java.awt.Dimension(54, 50));
-        BtnSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnSearchActionPerformed(evt);
+        TextSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TextSearchKeyReleased(evt);
             }
         });
+
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/search.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -181,8 +176,8 @@ public class FrameFornecedores extends javax.swing.JInternalFrame {
                         .addGap(80, 80, 80)
                         .addComponent(TextSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BtnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(70, Short.MAX_VALUE))
+                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,7 +195,7 @@ public class FrameFornecedores extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(BtnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(Tex_ForNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(TextSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))))
@@ -436,9 +431,9 @@ public class FrameFornecedores extends javax.swing.JInternalFrame {
         this.controle.ExcluirFornecedor();
     }//GEN-LAST:event_Bnt_ForExcluirActionPerformed
 
-    private void BtnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSearchActionPerformed
+    private void TextSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextSearchKeyReleased
         this.controle.CarregarTabelaFornecedor();
-    }//GEN-LAST:event_BtnSearchActionPerformed
+    }//GEN-LAST:event_TextSearchKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -448,7 +443,6 @@ public class FrameFornecedores extends javax.swing.JInternalFrame {
     private javax.swing.JButton Bnt_ForEditar;
     private javax.swing.JButton Bnt_ForExcluir;
     private javax.swing.JButton Bnt_ForLimpar;
-    private javax.swing.JButton BtnSearch;
     private javax.swing.JTable Table_Fornecedores;
     private javax.swing.JFormattedTextField Tex_ForCNPJ;
     private javax.swing.JTextField Tex_ForCodigo;
@@ -459,6 +453,7 @@ public class FrameFornecedores extends javax.swing.JInternalFrame {
     private javax.swing.JFormattedTextField Tex_ForTelefone;
     private javax.swing.JTextField TextSearch;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -582,14 +577,6 @@ public class FrameFornecedores extends javax.swing.JInternalFrame {
 
     public void setTex_ForTelefone(JFormattedTextField Tex_ForTelefone) {
         this.Tex_ForTelefone = Tex_ForTelefone;
-    }
-
-    public JButton getBtnSearch() {
-        return BtnSearch;
-    }
-
-    public void setBtnSearch(JButton BtnSearch) {
-        this.BtnSearch = BtnSearch;
     }
 
     public JTextField getTextSearch() {

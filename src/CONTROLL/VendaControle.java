@@ -98,6 +98,7 @@ public class VendaControle {
                 }
 
                 this.BaixaNoEstoque(ListaDeItens);
+                this.CarregarTabelaDeProdutos();
 
             }
             JOptionPane.showMessageDialog(null, "PEDIDO FECHADO COM SUCESSO!!");
