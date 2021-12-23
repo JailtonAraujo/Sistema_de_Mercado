@@ -1,5 +1,5 @@
 # Sistema_De_Mercado
- Sistema de Controle do Mercado G10
+ Sistema de Controle Financeiro, Estoque e Vendas do Mercado G10
 
 Proprietária: Gerlane da Silva Santana
 
